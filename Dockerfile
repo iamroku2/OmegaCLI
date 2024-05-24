@@ -1,7 +1,7 @@
-FROM python:3.10-slim-buster
+#FROM python:3.10-slim-buster
 
 # Base Image 
-#FROM fedora:37
+FROM Ubuntu:24
 
 # Setup home directory, non interactive shell and timezone
 RUN mkdir /bot /tgenc && chmod 777 /bot
