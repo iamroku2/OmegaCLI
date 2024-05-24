@@ -1,7 +1,7 @@
 #FROM python:3.10-slim-buster
 
 # Base Image 
-FROM ubuntu:24
+FROM ubuntu
 
 # Setup home directory, non interactive shell and timezone
 RUN mkdir /bot /tgenc && chmod 777 /bot
