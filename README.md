@@ -2,6 +2,9 @@
 
 [![pyLint](https://github.com/Nubuki-all/Tg-encoder/actions/workflows/pyLint.yml/badge.svg?branch=main)](https://github.com/Nubuki-all/Tg-encoder/actions/workflows/pyLint.yml)
 
+<a href="https://heroku.com/deploy?template=https://github.com/Salxchange/OmegaCLI"><img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy To Heroku Button"></a>
+
+
 __Still in beta…__
 
 ### Variables
