@@ -9,7 +9,7 @@ ENV TERM=xterm
 
 # Install Dependencies
 RUN apt-get update && apt-get upgrade -y
-RUN apt-get install git aria2 bash wget curl pv jq python3-pip mediainfo psmisc qbittorrent-nox && python3 -m pip install --upgrade pip setuptools -y
+RUN apt-get install git aria2 bash wget curl pv jq python3-pip mediainfo psmisc qbittorrent-nox -y && python3 -m pip install --upgrade pip setuptools
 
 # Install latest ffmpeg
 COPY --from=mwader/static-ffmpeg:6.1 /ffmpeg /bin/ffmpeg
