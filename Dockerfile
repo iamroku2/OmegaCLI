@@ -5,6 +5,7 @@ RUN chmod 777 /usr/src/app
 
 RUN apt-get update && apt-get upgrade -y
 RUN apt-get install git wget pv jq python3-dev mediainfo gcc libsm6 libxext6 libfontconfig1 libxrender1 libgl1-mesa-glx -y
+RUN dnf -qq -y update && dnf -qq -y install git aria2 bash xz wget curl pv jq python3-pip mediainfo psmisc procps-ng qbittorrent-nox && python3 -m pip install --upgrade pip setuptools
 
 COPY --from=mwader/static-ffmpeg:6.0 /ffmpeg /bin/ffmpeg
 COPY --from=mwader/static-ffmpeg:6.0 /ffprobe /bin/ffprobe
