@@ -56,7 +56,7 @@ class Config:
             self.FSTICKER = config("FSTICKER", default=None)
             self.LOCK_ON_STARTUP = config("LOCK_ON_STARTUP", default=False, cast=bool)
             self.LOG_CHANNEL = config("LOG_CHANNEL", default=0, cast=int)
-            self.LOGS_IN_CHANNEL = config("LOGS_IN_CHANNEL", default=NoneFalse, cast=bool)
+            self.LOGS_IN_CHANNEL = config("LOGS_IN_CHANNEL", default=False, cast=bool)
             self.MI_CAP = config("MI_IN_CAPTION", default=True, cast=bool)
             self.MUX_ARGS = config("MUX_ARGS", default=None)
             self.NO_BANNER = config("NO_BANNER", default=False, cast=bool)
