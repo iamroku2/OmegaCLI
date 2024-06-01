@@ -16,7 +16,7 @@ from bot import (
 from bot.config import conf
 from bot.startup.before import DOCKER_DEPLOYMENT as d_docker
 from bot.startup.before import entime
-from bot.utils.bot_utils import RSS_DICT as rss_dict
+#from bot.utils.bot_utils import RSS_DICT as rss_dict
 from bot.utils.bot_utils import (
     get_aria2,
     get_bqueue,
@@ -51,7 +51,7 @@ from bot.utils.os_utils import (
     updater,
     x_or_66,
 )
-from bot.utils.rss_utils import schedule_rss, scheduler
+#from bot.utils.rss_utils import schedule_rss, scheduler
 from bot.workers.downloaders.dl_helpers import get_qbclient
 
 
