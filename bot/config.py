@@ -51,12 +51,12 @@ class Config:
                 "FFMPEG",
                 default='ffmpeg -i "{}" -preset ultrafast -c:v libx265 -crf 27 -map 0:v -c:a aac -map 0:a -c:s copy -map 0:s? "{}"',
             )
-            self.FL_CAP = config("FILENAME_AS_CAPTION", default=False, cast=bool)
+            self.FL_CAP = config("FILENAME_AS_CAPTION", default=True, cast=bool)
             self.FS_THRESHOLD = config("FLOOD_SLEEP_THRESHOLD", default=600, cast=int)
             self.FSTICKER = config("FSTICKER", default=None)
             self.LOCK_ON_STARTUP = config("LOCK_ON_STARTUP", default=False, cast=bool)
             self.LOG_CHANNEL = config("LOG_CHANNEL", default=0, cast=int)
-            self.LOGS_IN_CHANNEL = config("LOGS_IN_CHANNEL", default=False, cast=bool)
+            self.LOGS_IN_CHANNEL = config("LOGS_IN_CHANNEL", default=NoneFalse, cast=bool)
             self.MI_CAP = config("MI_IN_CAPTION", default=True, cast=bool)
             self.MUX_ARGS = config("MUX_ARGS", default=None)
             self.NO_BANNER = config("NO_BANNER", default=False, cast=bool)
@@ -68,8 +68,8 @@ class Config:
             self.QBIT_TIMEOUT = config("QBIT_TIMEOUT", default=20, cast=int)
             self.RSS_CHAT = config("RSS_CHAT", default=0, cast=int)
             self.RSS_DELAY = config("RSS_DELAY", default=60, cast=int)
-            self.RSS_DIRECT = config("RSS_DIRECT", default=True, cast=bool)
-            self.RELEASER = config("RELEASER", default="FZX|FZXAnime")
+            self.RSS_DIRECT = config("RSS_DIRECT", default=False, cast=bool)
+            self.RELEASER = config("RELEASER", default="None")
             self.TELEGRAPH_API = config(
                 "TELEGRAPH_API", default="https://api.telegra.ph"
             )
@@ -78,7 +78,7 @@ class Config:
             self.TG_DL_CLIENT = config("TG_DL_CLIENT", default="pyrogram")
             self.TG_UL_CLIENT = config("TG_UL_CLIENT", default="pyrogram")
             self.THUMB = config("THUMBNAIL", default=None)
-            self.USE_ANILIST = config("USE_ANILIST", default=True, cast=bool)
+            self.USE_ANILIST = config("USE_ANILIST", default=False, cast=bool)
             self.USE_CAPTION = config("USE_CAPTION", default=True, cast=bool)
             self.WORKERS = config("WORKERS", default=2, cast=int)
         except Exception:
