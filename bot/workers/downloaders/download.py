@@ -418,7 +418,7 @@ class Downloader:
                     )
                 )
 
-            progress = "┃[{0}{1}] {2}%\n".format(
+            progress = "‣ [{0}{1}] {2}%\n".format(
                 "".join([fin_str for i in range(math.floor(download.progress / 10))]),
                 "".join(
                     [unfin_str for i in range(10 - math.floor(download.progress / 10))]
