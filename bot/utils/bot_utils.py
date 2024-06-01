@@ -54,8 +54,8 @@ class Var_list:
     QUEUE = {}
     OK = {}
 
-    FINISHED_PROGRESS_STR = "🧡"
-    UN_FINISHED_PROGRESS_STR = "🤍"
+    FINISHED_PROGRESS_STR = "⬢"
+    UN_FINISHED_PROGRESS_STR = "⬡"
     MAX_MESSAGE_LENGTH = 4096
 
 
