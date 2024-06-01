@@ -418,23 +418,19 @@ class Downloader:
                     )
                 )
 
-            progress = "```\n{0}{1}```\n<b>Progress:</b> `{2}%`\n".format(
-                "".join([fin_str for i in range(math.floor(download.progress / 10))]),
-                "".join(
-                    [unfin_str for i in range(10 - math.floor(download.progress / 10))]
-                ),
-                round(download.progress, 2),
+            progress = "{0}{1}\n<b>┃Processed:</b> {0} of {1}\n".format(
+                "".join([fin_str for i in range(math.floor(d_progress / 10))]),
+                "".join([unfin_str for i in range(10 - math.floor(d_progress / 10))]),
+                round(d_progress, 2),
             )
             tmp = (
                 progress
-                + "`{0} of {1}`\n**Speed:** `{2}/s`\n**Remains:** `{3}`\n**ETA:** `{4}`\n**Elapsed:** `{5}`\n".format(
+                + "┠ **Status:** Download | **ETA:** {4}\n┠ **Speed:** {2}/s | **Elapsed:** {5}\n**Remains:** {3}".format(
                     value_check(hbs(current)),
                     value_check(hbs(total)),
                     value_check(hbs(speed)),
-                    value_check(hbs(remaining_size)),
-                    # elapsed_time if elapsed_time != '' else "0 s",
-                    # download.eta if len(str(download.eta)) < 30 else "0 s",
-                    time_to_completion if time_to_completion else "0 s",
+                    value_check(hbs(remaining)),
+                    time_formatter(time_to_completion) if time_to_completion else "0 s",
                     time_formatter(diff),
                 )
             )
@@ -529,7 +525,7 @@ class Downloader:
             )
             tmp = (
                 progress
-                + "**┠ **Status:** Download | **ETA:** {4}\n┠ Speed:** {2}/s | **Elapsed:** {5}\n**Remains:** {3}".format(
+                + "┠ **Status:** Download | **ETA:** {4}\n┠ **Speed:** {2}/s | **Elapsed:** {5}\n**Remains:** {3}".format(
                     value_check(hbs(current)),
                     value_check(hbs(total)),
                     value_check(hbs(speed)),
