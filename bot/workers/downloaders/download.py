@@ -394,8 +394,8 @@ class Downloader:
             if not download.name.endswith(".torrent"):
                 self.file_name = download.name
                 self.path = self.dl_folder + self.file_name
-                ud_type = f"**Downloading:**\n`{download.name}`"
-                ud_type += "\n**via:** "
+                ud_type = f"**__{download.name}__**"
+                ud_type += ""
                 if download.is_torrent:
                     ud_type += "Torrent."
                 else:
@@ -418,7 +418,7 @@ class Downloader:
                     )
                 )
 
-            progress = "{0}{1}\n<b>┃Processed:</b> {0} of {1}\n".format(
+            progress = "{0}{1}".format(
                 "".join([fin_str for i in range(math.floor(download.progress / 10))]),
                 "".join(
                     [unfin_str for i in range(10 - math.floor(download.progress / 10))]
@@ -427,7 +427,7 @@ class Downloader:
             )
             tmp = (
                 progress
-                + "┠ **Status:** Download | **ETA:** {4}\n┠ **Speed:** {2}/s | **Elapsed:** {5}\n**Remains:** {3}".format(
+                + "┃**Processed:** {0} of {1}\n┠ **Status:** Download | **ETA:** {4}\n┠ **Speed:** {2}/s | **Elapsed:** {5}\n**Remains:** {3}".format(
                     value_check(hbs(current)),
                     value_check(hbs(total)),
                     value_check(hbs(speed)),
