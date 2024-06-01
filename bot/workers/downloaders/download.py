@@ -419,9 +419,11 @@ class Downloader:
                 )
 
             progress = "{0}{1}\n<b>┃Processed:</b> {0} of {1}\n".format(
-                "".join([fin_str for i in range(math.floor(d_progress / 10))]),
-                "".join([unfin_str for i in range(10 - math.floor(d_progress / 10))]),
-                round(d_progress, 2),
+                "".join([fin_str for i in range(math.floor(download.progress / 10))]),
+                "".join(
+                    [unfin_str for i in range(10 - math.floor(download.progress / 10))]
+                ),
+                round(download.progress, 2),
             )
             tmp = (
                 progress
@@ -429,8 +431,10 @@ class Downloader:
                     value_check(hbs(current)),
                     value_check(hbs(total)),
                     value_check(hbs(speed)),
-                    value_check(hbs(remaining)),
-                    time_formatter(time_to_completion) if time_to_completion else "0 s",
+                    value_check(hbs(remaining_size)),
+                    # elapsed_time if elapsed_time != '' else "0 s",
+                    # download.eta if len(str(download.eta)) < 30 else "0 s",
+                    time_to_completion if time_to_completion else "0 s",
                     time_formatter(diff),
                 )
             )
