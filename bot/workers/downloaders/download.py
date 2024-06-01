@@ -509,7 +509,7 @@ class Downloader:
                 ud_type = "`Download stalled…`"
             elif download.state == "downloading":
                 file_name = (os.path.split(self.file_name))[1]
-                ud_type = f"**Downloading:**\n`{file_name}`"
+                ud_type = f"{file_name}"
                 ud_type += "\n**via:** Torrent."
             total = download.size
             current = download.completed
@@ -522,14 +522,14 @@ class Downloader:
             fin_str = enhearts()
             d_progress = (current / total) * 100
 
-            progress = "```\n{0}{1}```\n<b>Progress:</b> `{2}%`\n".format(
+            progress = "{0}{1}\n<b>┃Processed:</b> {0} of {1}\n".format(
                 "".join([fin_str for i in range(math.floor(d_progress / 10))]),
                 "".join([unfin_str for i in range(10 - math.floor(d_progress / 10))]),
                 round(d_progress, 2),
             )
             tmp = (
                 progress
-                + "`{0} of {1}`\n**Speed:** `{2}/s`\n**Remains:** `{3}`\n**ETA:** `{4}`\n**Elapsed:** `{5}`\n".format(
+                + "**┠ **Status:** Download | **ETA:** {4}\n┠ Speed:** {2}/s | **Elapsed:** {5}\n**Remains:** {3}".format(
                     value_check(hbs(current)),
                     value_check(hbs(total)),
                     value_check(hbs(speed)),
