@@ -395,7 +395,7 @@ class Downloader:
                 self.file_name = download.name
                 self.path = self.dl_folder + self.file_name
                 ud_type = f"**__{download.name}__**"
-                ud_type += "<blockquote>\n\n**via:** "
+                ud_type += "<blockquote>\n\n**via:**\n"
                 if download.is_torrent:
                     ud_type += "Torrent.</blockquote>"
                 else:
