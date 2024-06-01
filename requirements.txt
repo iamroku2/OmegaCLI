@@ -13,6 +13,7 @@ tgcrypto
 psutil
 pycountry
 pymediainfo
+pyrofork
 pymongo[srv]
 pyrogram==2.0.106
 #pyrogram==2.0.73
