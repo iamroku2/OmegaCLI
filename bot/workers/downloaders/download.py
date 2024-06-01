@@ -394,12 +394,12 @@ class Downloader:
             if not download.name.endswith(".torrent"):
                 self.file_name = download.name
                 self.path = self.dl_folder + self.file_name
-                ud_type = f"**__{download.name}__**"
-                ud_type += "<blockquote>\n\n**via:**"
+                ud_type = f"**__{download.name}__**\n\n"
+                ud_type += "<blockquote>**via:**"
                 if download.is_torrent:
-                    ud_type += "\n\nTorrent.</blockquote>"
+                    ud_type += "Torrent.</blockquote>"
                 else:
-                    ud_type += "\n\nDirect Link.</blockquote>"
+                    ud_type += "Direct Link.</blockquote>"
             remaining_size = download.total_length - download.completed_length
             total = download.total_length
             current = download.completed_length
@@ -418,7 +418,7 @@ class Downloader:
                     )
                 )
 
-            progress = "‣ [{0}{1}] {2}%\n".format(
+            progress = "\n\n‣ [{0}{1}] {2}%\n".format(
                 "".join([fin_str for i in range(math.floor(download.progress / 10))]),
                 "".join(
                     [unfin_str for i in range(10 - math.floor(download.progress / 10))]
