@@ -7,7 +7,7 @@ from bot.fun.emojis import enmoji
 from bot.utils.bot_utils import code, decode
 from bot.utils.log_utils import logger
 
-def_enc_msg = "**Currently Encoding:**\n└__{}__\n\n**⏳This Might Take A While⏳**"
+def_enc_msg = "**Currently Encoding {}:**\n└__{}__\n\n**⏳This Might Take A While⏳**"
 
 
 class Encoder:
@@ -42,7 +42,7 @@ class Encoder:
             e_msg = await event.edit(
                 text.format(enmoji(), out),
                 buttons=[
-                    [Button.inline("INFO", data=f"pres{wah}"), Button.inline("PROGRESS", data=f"stats0")],
+                    [Button.inline("INFO", data=f"pres{wah}"), Button.inline("STATS", data=f"stats0")],
                     [Button.inline("SERVER-INFO", data=f"stats1"), Button.inline("CANCEL", data=f"skip{wah}")],
                 ],
             )
