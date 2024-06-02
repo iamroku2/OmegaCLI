@@ -395,7 +395,7 @@ async def custcap(
     encoder=None,
     _filter=None,
     ccodec=None,
-    dk=f"{fname}",
+    dk=f"{name}",
     caption=dk,
     #if conf.FL_CAP:
    # f"{fname}",
