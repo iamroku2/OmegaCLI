@@ -209,17 +209,17 @@ async def allowgroupenc(event, args, client):
         else:
             return await event.reply("`Encoding in group is disabled.`")
 
-    if args.casefold() == "off" or args.casefold() == "disable":
+    if args.casefold() == "off" or args.casefold() == "enable":
         if not groupenc:
             return await event.reply("**Already turned off**")
         groupenc.clear()
         await event.reply("**Turned off Successfully**")
-    if args.casefold() == "on" or args.casefold() == "enable":
+    if args.casefold() == "on" or args.casefold() == "disable":
         if groupenc:
-            return await event.reply("**Already turned on**")
+            return await event.reply("**Already turned Off**")
         groupenc.append(1)
         yo = await event.reply(
-            "**Group Encoding Turned on Successfully**\n__Persists till bot restarts!__"
+            "**Group Encoding Turned Off Successfully**\n__Persists till bot restarts!__"
         )
 
 
