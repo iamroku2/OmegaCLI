@@ -3,6 +3,7 @@ import zlib
 from concurrent.futures import ThreadPoolExecutor
 from functools import partial
 from pathlib import Path
+from bot.config import config
 from re import match as re_match
 
 import requests
@@ -131,7 +132,7 @@ def get_var(var):
     var_dict = dict()
     var_dict.update(
         {
-            "groupenc": C.GROUP_ID,
+            "groupenc": config.GROUP_ID,
             "startup": STARTUP,
             "version2": VERSION2,
             "pausefile": PAUSEFILE,
