@@ -401,7 +401,7 @@ async def custcap(
     except Exception:
         await logger(Exception)
         caption = f"File Name: {fname}"
-    return caption
+   # return caption
     buttons = [Button.inline("Download", data="download")]
 
     # Send the message with the button
