@@ -397,10 +397,10 @@ async def custcap(
     ccodec=None,
 ):
     try:
-        caption = f"{fname}"
+        caption = f"File Name: {fname}"
     except Exception:
         await logger(Exception)
-        caption = f"{fname}"
+        caption = f"File Name: {fname}"
     return caption
                     
     if not conf.EXT_CAP:
