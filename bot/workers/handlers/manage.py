@@ -199,7 +199,7 @@ async def allowgroupenc(event, args, client):
         - on/enable (enable group encode)
         <All arguments are not case sensitive.>
     """
-    if not user_is_owner(event.sender_id):
+if not user_is_owner(event.sender_id):
     return await event.delete()
 
 groupenc = get_var("groupenc")  # Assuming this is a global variable or a function
