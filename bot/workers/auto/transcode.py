@@ -304,8 +304,8 @@ async def thing():
             asyncio.create_task(dumpdl(dl, name, thumb2, msg_t.chat_id, message))
         if len(queue) > 1 and conf.CACHE_DL and not einfo.batch:
             await cache_dl()
-        with open(ffmpeg_file, "r") as file:
-            nani = file.read().rstrip()
+      #  with open(ffmpeg_file, "r") as file:
+           # nani = file.read().rstrip()
       #  ffmpeg = dl
 
        # _set = time.time()
