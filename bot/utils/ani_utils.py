@@ -398,7 +398,7 @@ async def custcap(
     ccodec=None,
 
     #if conf.FL_CAP:
-    f"{fname}"
+    f"{fname}",
     buttons=[
         [Button.url("Before Info", url=a1), Button.url("After Info", url=a2)],
         [Button.inline(f"⚡ Encoded 480p", data="stat11")],
