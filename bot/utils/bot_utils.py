@@ -3,7 +3,7 @@ import zlib
 from concurrent.futures import ThreadPoolExecutor
 from functools import partial
 from pathlib import Path
-from bot.config import config
+from bot.config import Config
 from re import match as re_match
 
 import requests
