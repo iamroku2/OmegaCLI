@@ -525,14 +525,16 @@ class Downloader:
             fin_str = enhearts()
             d_progress = (current / total) * 100
 
-            progress = "{0}{1}\n<b>┃Processed:</b> {0} of {1}\n".format(
+            #progress = "{0}{1}\n<b>┃Processed:</b> {0} of {1}\n".format(
+            progress = "\n‣ **[{0}{1}]** {2}%\n".format(
                 "".join([fin_str for i in range(math.floor(d_progress / 10))]),
                 "".join([unfin_str for i in range(10 - math.floor(d_progress / 10))]),
                 round(d_progress, 2),
             )
             tmp = (
                 progress
-                + "┠ **Status:** Download | **ETA:** {4}\n┠ **Speed:** {2}/s | **Elapsed:** {5}\n**Remains:** {3}".format(
+               # + "┠ **Status:** Download | **ETA:** {4}\n┠ **Speed:** {2}/s | **Elapsed:** {5}\n**Remains:** {3}".format(
+                + "‣ **Processed:** {0} of {1}\n‣ **Status:** Download | **ETA:** {4}\n‣ **Speed:** {2}/s | **Elapsed:** {5}\n‣ **Remains:** {3}".format(
                     value_check(hbs(current)),
                     value_check(hbs(total)),
                     value_check(hbs(speed)),
