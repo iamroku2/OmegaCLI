@@ -424,7 +424,7 @@ async def thing():
         text = str()
         mi = await info(dl)
         forward_task = asyncio.create_task(forward_(name, out, up, mi, f))
-        ds = await e.client.send_file(
+        ds = await client.send_file(
             e.chat_id, file=ok, force_document=True, caption=dk, link_preview=False, thumb=thum, parse_mode="html",
             buttons=[
                 [Button.url("Before Info", url=mi), Button.url("After Info", url=mi)],
