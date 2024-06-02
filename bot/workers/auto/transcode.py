@@ -306,7 +306,7 @@ async def thing():
             await cache_dl()
         with open(ffmpeg_file, "r") as file:
             nani = file.read().rstrip()
-        #ffmpeg = await another(file_name)
+        ffmpeg = await another(title)
 
         _set = time.time()
         einfo.current = file_name
