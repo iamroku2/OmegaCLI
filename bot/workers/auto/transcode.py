@@ -6,7 +6,7 @@ from bot import asyncio, ffmpeg_file, mux_file, pyro, tele, time
 from bot.config import conf
 from bot.others.exceptions import AlreadyDl
 from bot.startup.before import entime
-#from bot.utils.ani_utils import custcap, dynamicthumb, f_post, parse, qparse_t
+from bot.utils.ani_utils import custcap, dynamicthumb, f_post, parse, qparse_t
 from bot.utils.batch_utils import (
     get_batch_list,
     get_downloadable_batch,
