@@ -87,7 +87,8 @@ class Uploader:
             speed = current / diff
             time_to_completion = time_formatter(int((total - current) / speed))
 
-            progress = "```\n{0}{1}```\n{2}\n<b>Progress:</b> `{3}%`\n".format(
+           # progress = "```\n{0}{1}```\n{2}\n<b>Progress:</b> `{3}%`\n".format(
+            progress = "\n‣ **[{0}{1}]** {2}%\n".format(
                 "".join([fin_str for i in range(math.floor(percentage / 10))]),
                 "".join([unfin_str for i in range(10 - math.floor(percentage / 10))]),
                 file_info,
@@ -96,7 +97,8 @@ class Uploader:
 
             tmp = (
                 progress
-                + "`{0} of {1}`\n**Speed:** `{2}/s`\n**ETA:** `{3}`\n**Elapsed:** `{4}`\n".format(
+                #+ "`{0} of {1}`\n**Speed:** `{2}/s`\n**ETA:** `{3}`\n**Elapsed:** `{4}`\n".format(
+                + "‣ **Processed:** {0} of {1}\n‣ **Status:** Download | **ETA:** {3}\n‣ **Speed:** {2}/s | **Elapsed:** {4}".format(
                     hbs(current),
                     hbs(total),
                     hbs(speed),
@@ -107,7 +109,7 @@ class Uploader:
             try:
                 # Create a "Cancel" button
                 cancel_button = InlineKeyboardButton(
-                    text=f"{enmoji()} Cancel", callback_data=self.callback_data
+                    text=f"Cancel", callback_data=self.callback_data
                 )
                 # Attach the button to the message with an inline keyboard
                 reply_markup = InlineKeyboardMarkup([[cancel_button]])
