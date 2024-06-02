@@ -7,7 +7,7 @@ from pyrogram.filters import regex
 from pyrogram.handlers import CallbackQueryHandler
 
 from bot import asyncio, botStartTime, pyro, time
-from bot.utils.ani_utils import qparse
+#from bot.utils.ani_utils import qparse
 from bot.utils.batch_utils import get_batch_list
 from bot.utils.bot_utils import (
     decode,
