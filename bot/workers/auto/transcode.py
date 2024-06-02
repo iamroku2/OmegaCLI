@@ -306,11 +306,11 @@ async def thing():
             await cache_dl()
         with open(ffmpeg_file, "r") as file:
             nani = file.read().rstrip()
-        ffmpeg = dl.replace(f"downloads/", "").replace(f"_", " ")
+      #  ffmpeg = dl
 
-        _set = time.time()
-        einfo.current = file_name
-        einfo._current = name
+       # _set = time.time()
+       # einfo.current = file_name
+        #einfo._current = name
         cmd = ffmpeg.format(dl, out)
         encode = encoder(_id, sender, msg_t, op)
         # await mssg_r.edit("`Waiting For Encoding To Complete`")
