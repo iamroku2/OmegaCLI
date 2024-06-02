@@ -122,7 +122,7 @@ async def start(event):
       #  msg = msg2
     await event.reply(
         file=conf.START_PIC,
-        msg=hey 👋 
+        msg=hey 
         buttons=[
             [Button.url("⚡ 𝖴𝗉𝖽𝖺𝗍𝖾𝗌", url='t.me/Rokubotz'), Button.url('⚡ 𝖲𝗎𝗉𝗉𝗈𝗋𝗍', url='t.me/Team_Roku')],
             [Button.url('👨‍💻 𝖣𝖾𝗏𝖾𝗅𝗈𝗉𝖾𝗋', url='t.me/MysteryDemon'), Button.inline('❗ 𝖧𝖾𝗅𝗉', data="ihelp")]
@@ -168,7 +168,7 @@ async def beck(event):
   #  if not msg:
       #  msg = msg2
     await event.edit(
-        msg=Hey 👋 
+        msg=Hey 
         buttons=[
             [Button.url("⚡ 𝖴𝗉𝖽𝖺𝗍𝖾𝗌", url='t.me/Rokubotz'), Button.url('⚡ 𝖲𝗎𝗉𝗉𝗈𝗋𝗍', url='t.me/Team_Roku')],
             [Button.url('👨‍💻 𝖣𝖾𝗏𝖾𝗅𝗈𝗉𝖾𝗋', url='t.me/MysteryDemon'), Button.inline('❗ 𝖧𝖾𝗅𝗉', data="ihelp")]
