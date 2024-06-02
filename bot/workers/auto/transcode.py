@@ -420,21 +420,7 @@ async def thing():
         mi = await info(dl)
         forward_task = asyncio.create_task(forward_(name, out, up, mi, f))
 
-        dk = f"<b>File Name:"
-        text = str()
-        mi = await info(dl)
-        forward_task = asyncio.create_task(forward_(name, out, up, mi, f))
-        ds = await event.edit(
-            e.chat_id, file=ok, force_document=True, caption=dk, link_preview=False, thumb=thum, parse_mode="html",
-            buttons=[
-                [Button.url("Before Info", url=mi), Button.url("After Info", url=mi)],
-                [Button.inline(f"⚡ Encoded 480p", data="stat11")],
-               # [Button.inline(f"Original File Size: {hbs(org)}", data="stat3")], 
-                #[Button.inline(f"Encoded File Size: {hbs(com)}", data="stat22")],
-                [Button.inline(f"Encoded in: {etime}", data="stat9")],
-                #[Button.inline(f"📥 {x}", data="statx"), Button.inline(f"📤 {xxx}", data="stat8")],
-            ],
-        )
+        
     #    text += f"**Source:** `[{rlsgrp}]`"
        # if mi:
          #   text += f"\n\nMediainfo: **[(Source)]({mi})**"
@@ -443,7 +429,7 @@ async def thing():
         #    disable_web_page_preview=True,
          #   quote=True,
       #  )
-      #  await mi_msg.copy(chat_id=log_channel) if op else None
+        await mi_msg.copy(chat_id=log_channel) if op else None
 
        # st_msg = await up.reply(
           #  f"**Encode Stats:**\n\nOriginal Size: "
