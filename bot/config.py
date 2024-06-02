@@ -71,6 +71,7 @@ class Config:
             self.RSS_DELAY = config("RSS_DELAY", default=60, cast=int)
             self.RSS_DIRECT = config("RSS_DIRECT", default=False, cast=bool)
             self.RELEASER = config("RELEASER", default="None")
+            self.START_PIC = config("START_PIC", default=None)
             self.TELEGRAPH_API = config(
                 "TELEGRAPH_API", default="https://api.telegra.ph"
             )
