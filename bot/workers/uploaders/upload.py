@@ -27,7 +27,7 @@ class Uploader:
                 else:
                     thum = thumb
             code(self, index=self.id)
-            #fm = f"**From folder:** {os.path.split(filepath)[0]}"
+            fm = f"**From folder:** {os.path.split(filepath)[0]}"
             fm += f"__**\n{os.path.split(filepath)[1]}**__\n"
             async with tele.action(from_user_id, "file"):
                 await reply.edit("🔺Uploading🔺")
