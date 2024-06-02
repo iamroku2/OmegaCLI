@@ -398,7 +398,7 @@ async def custcap(
     ccodec=None,
 ):
     if conf.FL_CAP:
-        return f"`{fname}`"
+        return f"{fname}"
     if not conf.EXT_CAP:
         return await simplecap(
             name, fname, anilist, cust_type, folder, ver, encoder, _filter, ccodec
