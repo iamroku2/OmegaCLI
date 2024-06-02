@@ -278,20 +278,17 @@ async def thing():
             return
         edt = time.time()
         dtime = tf(edt - sdt)
-        
-        kk = dl.split("/")[-1]
-        aa = kk.split(".")[-1]
+
         d_folder, d_fname = path_split(dl)
         d_ext = split_ext(d_fname)[-1]
         _dir = "encode"
-       # file_name, metadata_name = await parse(
-            #name, d_fname, d_ext, v=v, folder=d_folder, _filter=f
-       # )
-        bb = kk.replace(f".{aa}", ".mkv")
-        out =  f"{_dir}/{bb}"
+        file_name, metadata_name = await parse(
+            name, d_fname, d_ext, v=v, folder=d_folder, _filter=f
+        )
+        out = f"{_dir}/{file_name}"
         title, epi, sn, rlsgrp = await dynamicthumb(name, _filter=f)
 
-        c_n = f"{sn or str()}".strip()
+        c_n = f"{title} {sn or str()}".strip()
         if einfo.previous and einfo.previous == c_n:
             pass
         else:
@@ -304,13 +301,13 @@ async def thing():
             asyncio.create_task(dumpdl(dl, name, thumb2, msg_t.chat_id, message))
         if len(queue) > 1 and conf.CACHE_DL and not einfo.batch:
             await cache_dl()
-      #  with open(ffmpeg_file, "r") as file:
-           # nani = file.read().rstrip()
-      #  ffmpeg = dl
+        with open(ffmpeg_file, "r") as file:
+            nani = file.read().rstrip()
+        ffmpeg = await another(nani, title, epi, sn, metadata_name, dl)
 
-       # _set = time.time()
-       # einfo.current = file_name
-        #einfo._current = name
+        _set = time.time()
+        einfo.current = file_name
+        einfo._current = name
         cmd = ffmpeg.format(dl, out)
         encode = encoder(_id, sender, msg_t, op)
         # await mssg_r.edit("`Waiting For Encoding To Complete`")
@@ -423,25 +420,25 @@ async def thing():
         mi = await info(dl)
         forward_task = asyncio.create_task(forward_(name, out, up, mi, f))
 
-       # text += f"**Source:** `[{rlsgrp}]`"
-        #if mi:
-       #     text += f"\n\nMediainfo: **[(Source)]({mi})**"
-       # mi_msg = await up.reply(
-      #      text,
-         #   disable_web_page_preview=True,
-           # quote=True,
-       # )
-        await mi_msg.copy(chat_id=log_channel) if op else None
-
-       # st_msg = e.client.send_file(
-       #     f"**Encode Stats:**\n\nOriginal Size: "
-       #     f"`{hbs(org_s)}`\nEncoded Size: `{hbs(out_s)}`\n"
-        #    f"Encoded Percentage: `{per}`\n\n"
-        #    f"{'Cached' if einfo.cached_dl else 'Downloaded'} in `{dtime}`\n"
-      #      f"Encoded in `{etime}`\n{mux_msg}Uploaded in `{utime}`",
-       #     disable_web_page_preview=True,
-        #    quote=True,
+    #    text += f"**Source:** `[{rlsgrp}]`"
+       # if mi:
+         #   text += f"\n\nMediainfo: **[(Source)]({mi})**"
+      #  mi_msg = await up.reply(
+       #     text,
+        #    disable_web_page_preview=True,
+         #   quote=True,
       #  )
+      #  await mi_msg.copy(chat_id=log_channel) if op else None
+
+       # st_msg = await up.reply(
+          #  f"**Encode Stats:**\n\nOriginal Size: "
+         #   f"`{hbs(org_s)}`\nEncoded Size: `{hbs(out_s)}`\n"
+         #   f"Encoded Percentage: `{per}`\n\n"
+          #  f"{'Cached' if einfo.cached_dl else 'Downloaded'} in `{dtime}`\n"
+        #    f"Encoded in `{etime}`\n{mux_msg}Uploaded in `{utime}`",
+          #  disable_web_page_preview=True,
+          #  quote=True,
+       # )
         await st_msg.copy(chat_id=log_channel) if op else None
         await forward_task
 
