@@ -103,7 +103,7 @@ async def start(event, args, client):
     msg = ""
     msg1 = f"Hi `{event.sender.first_name}`\n"
     msg2 = (
-        f"{msg1}I've been alive for `{currentTime}` and i'm ready to encode videos 😗"
+        f"__{msg1}I've been alive for {currentTime} and i'm ready to encode videos 😗__"
     )
     msg3 = f"{msg2}\nand by the way you're a temporary user"
     user = event.sender_id
@@ -121,17 +121,11 @@ async def start(event, args, client):
     if not msg:
         msg = msg2
     await event.reply(
+        file=conf.START_PIC,
         msg,
         buttons=[
-            [Button.inline("Help", data="ihelp")],
-            [
-                Button.url(
-                    "Source-Code (Original)",
-                    url="github.com/1Danish-00/compressorqueue",
-                ),
-                Button.url("Developer (Original)", url="t.me/danish_00"),
-            ],
-            [Button.url("Fork Maintainer", url="t.me/Col_serra")],
+            [Button.url("⚡ 𝖴𝗉𝖽𝖺𝗍𝖾𝗌", url='t.me/Rokubotz'), Button.url('⚡ 𝖲𝗎𝗉𝗉𝗈𝗋𝗍', url='t.me/Team_Roku')],
+            [Button.url('👨‍💻 𝖣𝖾𝗏𝖾𝗅𝗈𝗉𝖾𝗋', url='t.me/MysteryDemon'), Button.inline('❗ 𝖧𝖾𝗅𝗉', data="ihelp")]
         ],
     )
 
@@ -176,15 +170,8 @@ async def beck(event):
     await event.edit(
         msg,
         buttons=[
-            [Button.inline("Help", data="ihelp")],
-            [
-                Button.url(
-                    "Source-Code (Original)",
-                    url="github.com/1Danish-00/compressorqueue",
-                ),
-                Button.url("Developer (Original)", url="t.me/danish_00"),
-            ],
-            [Button.url("Fork Maintainer", url="t.me/Col_serra")],
+            [Button.url("⚡ 𝖴𝗉𝖽𝖺𝗍𝖾𝗌", url='t.me/Rokubotz'), Button.url('⚡ 𝖲𝗎𝗉𝗉𝗈𝗋𝗍', url='t.me/Team_Roku')],
+            [Button.url('👨‍💻 𝖣𝖾𝗏𝖾𝗅𝗈𝗉𝖾𝗋', url='t.me/MysteryDemon'), Button.inline('❗ 𝖧𝖾𝗅𝗉', data="ihelp")]
         ],
     )
 
