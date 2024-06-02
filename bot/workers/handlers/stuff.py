@@ -103,7 +103,7 @@ async def start(event, args, client):
     msg = ""
     msg1 = f"Hi **{event.sender.first_name}**\n"
     msg2 = (
-        f"{msg1}\n__I've been alive for {currentTime} and i'm ready to encode videos 😗__\n\n```Resolution: 854x480```"
+        f"{msg1}\n__I've been alive for {currentTime} and i'm ready to encode videos 😗__\n\n```Resolution: 1920x1080```"
     )
     msg3 = f"{msg2}\nand by the way you're a temporary user"
     user = event.sender_id
@@ -156,7 +156,7 @@ async def beck(event):
     msg1 = f"Hi **{event.sender.first_name}**\n"
     msg2 = (
        # f"{msg1}I've been alive for `{currentTime}` and i'm ready to encode videos 😗"
-       f"{msg1}\n__I've been alive for {currentTime} and i'm ready to encode videos 😗__\n\n```Resolution: 854x480```"
+       f"{msg1}\n__I've been alive for {currentTime} and i'm ready to encode videos 😗__\n\n```Resolution: 1920x1080```"
     )
     msg3 = f"{msg2}\nand by the way you're a temporary user"
     if temp_is_allowed(sender):
