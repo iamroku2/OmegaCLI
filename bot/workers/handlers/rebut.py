@@ -12,7 +12,7 @@ from bot import (
     time,
 )
 from bot.fun.emojis import enmoji
-from bot.utils.ani_utils import airing_anim, anime_arch, custcap, dynamicthumb, parse
+#from bot.utils.ani_utils import airing_anim, anime_arch, custcap, dynamicthumb, parse
 from bot.utils.bot_utils import (
     code,
     get_f,
