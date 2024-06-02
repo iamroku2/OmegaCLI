@@ -88,7 +88,7 @@ class Uploader:
             time_to_completion = time_formatter(int((total - current) / speed))
 
            # progress = "```\n{0}{1}```\n{2}\n<b>Progress:</b> `{3}%`\n".format(
-            progress = "\n‣ **[{0}{1}]** {2}%\n".format(
+            progress = "\n‣ **[{0}{1}]** {3}%\n".format(
                 "".join([fin_str for i in range(math.floor(percentage / 10))]),
                 "".join([unfin_str for i in range(10 - math.floor(percentage / 10))]),
                 file_info,
