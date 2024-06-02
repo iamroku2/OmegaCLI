@@ -2,7 +2,7 @@ from pyrogram.types import Message
 
 from bot import asyncio, dl_pause, errors, itertools, queue_lock
 from bot.fun.quips import enquip4
-from bot.utils.ani_utils import qparse
+#from bot.utils.ani_utils import qparse
 from bot.utils.batch_utils import batch_preview, clean_batch
 from bot.utils.bot_utils import (
     bot_is_paused,
