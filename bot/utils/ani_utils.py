@@ -407,7 +407,6 @@ async def custcap(
         [Button.inline(f"Encoded in: {xx}", data="stat9")],
                # [Button.inline(f"📥 {x}", data="statx"), Button.inline(f"📤 {xxx}", data="stat8")],
             ],
-    )
                     
     if not conf.EXT_CAP:
         return await simplecap(
