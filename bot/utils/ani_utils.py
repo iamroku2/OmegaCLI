@@ -399,6 +399,15 @@ async def custcap(
 ):
     if conf.FL_CAP:
         return f"{fname}"
+    buttons=[
+                [Button.url("Before Info", url=a1), Button.url("After Info", url=a2)],
+                [Button.inline(f"⚡ Encoded 480p", data="stat11")],
+              #  [Button.inline(f"Original File Size: {hbs(org)}", data="stat3")], 
+              #  [Button.inline(f"Encoded File Size: {hbs(com)}", data="stat22")],
+                [Button.inline(f"Encoded in: {xx}", data="stat9")],
+               # [Button.inline(f"📥 {x}", data="statx"), Button.inline(f"📤 {xxx}", data="stat8")],
+            ],
+        )            
     if not conf.EXT_CAP:
         return await simplecap(
             name, fname, anilist, cust_type, folder, ver, encoder, _filter, ccodec
