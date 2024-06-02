@@ -396,9 +396,9 @@ async def custcap(
     encoder=None,
     _filter=None,
     ccodec=None,
-):
-    if conf.FL_CAP:
-        return f"{fname}"
+
+    #if conf.FL_CAP:
+    f"{fname}"
     buttons=[
         [Button.url("Before Info", url=a1), Button.url("After Info", url=a2)],
         [Button.inline(f"⚡ Encoded 480p", data="stat11")],
@@ -407,6 +407,7 @@ async def custcap(
         [Button.inline(f"Encoded in: {xx}", data="stat9")],
                # [Button.inline(f"📥 {x}", data="statx"), Button.inline(f"📤 {xxx}", data="stat8")],
             ],
+):
                     
     if not conf.EXT_CAP:
         return await simplecap(
