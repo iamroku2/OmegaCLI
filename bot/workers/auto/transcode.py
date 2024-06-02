@@ -279,8 +279,8 @@ async def thing():
         edt = time.time()
         dtime = tf(edt - sdt)
         
-        aa = kk.split(".")[-1]
         kk = dl.split("/")[-1]
+        aa = kk.split(".")[-1]
         d_folder, d_fname = path_split(dl)
         d_ext = split_ext(d_fname)[-1]
         _dir = "encode"
