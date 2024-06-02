@@ -384,7 +384,7 @@ async def dynamicthumb(name, thum="thumb2.jpg", anilist=True, _filter=None):
         # log(Exception)
     return title, epi, sn, rg
 
-
+dk=f"{fname}"
 async def custcap(
     name,
     fname,
@@ -396,9 +396,9 @@ async def custcap(
     encoder=None,
     _filter=None,
     ccodec=None,
-
+    caption=dk,
     #if conf.FL_CAP:
-    f"{fname}",
+   # f"{fname}",
     buttons=[
         [Button.url("Before Info", url=a1), Button.url("After Info", url=a2)],
         [Button.inline(f"⚡ Encoded 480p", data="stat11")],
