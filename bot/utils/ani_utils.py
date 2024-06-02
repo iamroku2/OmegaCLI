@@ -428,10 +428,10 @@ async def simplecap(
     ccodec=None,
 ):
     try:
-        caption = f"`{fname}`"
+        caption = f"{fname}"
     except Exception:
         await logger(Exception)
-        caption = f"`{fname}`"
+        caption = f"{fname}"
     return caption
 
 
