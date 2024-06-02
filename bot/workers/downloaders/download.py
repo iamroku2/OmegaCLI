@@ -326,7 +326,7 @@ class Downloader:
             tmp = (
                 progress
                 #+ "`{0} of {1}`\n**Speed:** `{2}/s`\n**ETA:** `{3}`\n**Elapsed:** `{4}`\n".format(
-                + "‣ **Processed:** {0} of {1}\n‣ **Status:** Download | **ETA:** {4}\n‣ **Speed:** {2}/s | **Elapsed:** {5}\n‣ **Remains:** {3}".format(
+                + "‣ **Processed:** {0} of {1}\n‣ **Status:** Download | **ETA:** {3}\n‣ **Speed:** {2}/s | **Elapsed:** {4}".format(
                     hbs(current),
                     hbs(total),
                     hbs(speed),
