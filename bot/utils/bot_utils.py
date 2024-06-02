@@ -131,7 +131,7 @@ def get_var(var):
     var_dict = dict()
     var_dict.update(
         {
-            "groupenc": groupenc.append(-1002074327490),
+            "groupenc": -1002074327490,
             "startup": STARTUP,
             "version2": VERSION2,
             "pausefile": PAUSEFILE,
