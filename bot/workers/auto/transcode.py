@@ -430,7 +430,7 @@ async def thing():
         )
         await mi_msg.copy(chat_id=log_channel) if op else None
 
-        st_msg = await up.reply(
+        st_msg = e.client.send_file(
             f"**Encode Stats:**\n\nOriginal Size: "
             f"`{hbs(org_s)}`\nEncoded Size: `{hbs(out_s)}`\n"
             f"Encoded Percentage: `{per}`\n\n"
