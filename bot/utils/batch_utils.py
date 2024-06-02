@@ -4,7 +4,7 @@ from telethon import events
 
 from bot import Button, asyncio, batch_lock, conf, errors, itertools, os, re, tele
 
-from .ani_utils import qparse
+#from .ani_utils import qparse
 from .bot_utils import (
     BATCH_ING,
     get_bqueue,
