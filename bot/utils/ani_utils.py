@@ -405,7 +405,7 @@ async def custcap(
     buttons = [Button.inline("Download", data="download")]
 
     # Send the message with the button
-    await client.send_message(chat_id, caption, buttons=buttons)
+    await client.send_message(e.chat_id, caption, buttons=buttons)
     
     if not conf.EXT_CAP:
         return await simplecap(
