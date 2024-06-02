@@ -395,19 +395,13 @@ async def custcap(
     encoder=None,
     _filter=None,
     ccodec=None,
-    dk=f"{name}"
-    caption=dk
-    #if conf.FL_CAP:
-   # f"{fname}",
-    buttons=[
-        [Button.url("Before Info", url=a1), Button.url("After Info", url=a2)],
-        [Button.inline(f"⚡ Encoded 480p", data="stat11")],
-              #  [Button.inline(f"Original File Size: {hbs(org)}", data="stat3")], 
-              #  [Button.inline(f"Encoded File Size: {hbs(com)}", data="stat22")],
-        [Button.inline(f"Encoded in: {xx}", data="stat9")],
-               # [Button.inline(f"📥 {x}", data="statx"), Button.inline(f"📤 {xxx}", data="stat8")],
-            ],
 ):
+    try:
+        caption = f"{fname}"
+    except Exception:
+        await logger(Exception)
+        caption = f"{fname}"
+    return caption
                     
     if not conf.EXT_CAP:
         return await simplecap(
