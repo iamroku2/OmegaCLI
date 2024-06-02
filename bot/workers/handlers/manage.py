@@ -200,13 +200,9 @@ async def allowgroupenc(event, args, client):
         <All arguments are not case sensitive.>
     """
     if not user_is_owner(event.sender_id):
-        return await event.delete()
-    groupenc = get_var("groupenc")
-
-    if not user_is_owner(event.sender_id):
     return await event.delete()
 
-    groupenc = get_var("groupenc")  # Assuming this is a global variable or a function
+groupenc = get_var("groupenc")  # Assuming this is a global variable or a function
 
 # Always enable group encoding
 if not groupenc:  # If it's not already set
