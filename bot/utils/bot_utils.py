@@ -40,7 +40,7 @@ class Var_list:
     LAST_ENCD = []
     PAUSEFILE = []
     USER_MAN = []
-    GROUPENC = []
+    GROUPENC = Config.GROUP_ID
     VERSION2 = []
     U_CANCEL = []
     R_QUEUE = []
@@ -132,7 +132,7 @@ def get_var(var):
     var_dict = dict()
     var_dict.update(
         {
-            "groupenc": config.GROUP_ID,
+            "groupenc": GROUPENC,
             "startup": STARTUP,
             "version2": VERSION2,
             "pausefile": PAUSEFILE,
