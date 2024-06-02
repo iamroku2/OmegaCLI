@@ -106,7 +106,7 @@ class Downloader:
                 )
                 reply_markup = InlineKeyboardMarkup([[more_button], [cancel_button]])
                 dl_info = await parse_dl(self.file_name)
-                msg = f"**Downloading __{file_name}__"
+                msg = f"**Downloading __{self.file_name}__"
                 if self.uri:
                     msg += " from a link"
                 message = await pyro.get_messages(self.lc.chat_id, self.lc.id)
@@ -134,9 +134,9 @@ class Downloader:
                 self.time = ttt = time.time()
                 media_type = str(message.media)
                 if media_type == "MessageMediaType.DOCUMENT":
-                    media_mssg = f"**Downloading** __{file_name}__"
+                    media_mssg = f"**Downloading** __{self.file_name}__"
                 else:
-                    media_mssg = f"**Downloading** __{file_name}__"
+                    media_mssg = f"**Downloading** __{self.file_name}__"
                 download_task = await pyro.download_media(
                     message=message,
                     file_name=dl,
