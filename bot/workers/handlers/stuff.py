@@ -97,37 +97,37 @@ async def status(event, args, client):
     )
 
 
-async def start(event):
+async def start(event, args, client):
     """A function for the start command, accepts no arguments yet!"""
     currentTime = tf(time.time() - botStartTime)
-   # msg = ""
-   # msg1 = f"Hi `{event.sender.first_name}`\n"
-   # msg2 = (
-   #     f"__{msg1}I've been alive for {currentTime} and i'm ready to encode videos 😗__"
-   # )
-   # msg3 = f"{msg2}\nand by the way you're a temporary user"
-  #  user = event.sender_id
-   # if not user_is_owner(user) and event.is_private:
-     #   if not pm_is_allowed(in_pm=True):
-      #      return await event.delete()
-  #  if temp_is_allowed(user):
-    #    msg = msg3
-  #  elif not user_is_allowed(user):
-     #   priv = await event.client.get_entity(int(conf.OWNER.split()[0]))
-    #    msg = f"{msg1}You're not allowed access to this bot"
-    #    msg += f"\nAsk [{priv.first_name}](tg://user?id={conf.OWNER.split()[0]}) "
-     #   msg += "(nicely) to grant you access."
+    msg = ""
+    msg1 = f"Hi `{event.sender.first_name}`\n"
+    msg2 = (
+        f"{msg1}I've been alive for `{currentTime}` and i'm ready to encode videos 😗"
+    )
+    msg3 = f"{msg2}\nand by the way you're a temporary user"
+    user = event.sender_id
+    if not user_is_owner(user) and event.is_private:
+        if not pm_is_allowed(in_pm=True):
+            return await event.delete()
+    if temp_is_allowed(user):
+        msg = msg3
+    elif not user_is_allowed(user):
+        priv = await event.client.get_entity(int(conf.OWNER.split()[0]))
+        msg = f"{msg1}You're not allowed access to this bot"
+        msg += f"\nAsk [{priv.first_name}](tg://user?id={conf.OWNER.split()[0]}) "
+        msg += "(nicely) to grant you access."
 
-   # if not msg:
-      #  msg = msg2
+    if not msg:
+        msg = msg2
     await event.reply(
-        file=conf.START_PIC,
-        msg=hey,
+        msg,
         buttons=[
             [Button.url("⚡ 𝖴𝗉𝖽𝖺𝗍𝖾𝗌", url='t.me/Rokubotz'), Button.url('⚡ 𝖲𝗎𝗉𝗉𝗈𝗋𝗍', url='t.me/Team_Roku')],
-            [Button.url('👨‍💻 𝖣𝖾𝗏𝖾𝗅𝗈𝗉𝖾𝗋', url='t.me/MysteryDemon'), Button.inline('❗ 𝖧𝖾𝗅𝗉', data="ihelp")]
+            [Button.url('👨‍💻 𝖣𝖾𝗏𝖾𝗅𝗈𝗉𝖾𝗋', url='t.me/MysteryDemon'), Button.inline('❗ 𝖧𝖾𝗅𝗉', data="help")]
         ],
     )
+
 
 
 async def help(event, args, client):
@@ -144,7 +144,7 @@ async def ihelp(event):
         "\n\nFor available commands click the Commands button below.",
         buttons=[
             [Button.inline("Commands", data="icommands")],
-            [Button.inline("🔙 Back", data="beck")],
+            [Button.inline("« Bᴀᴄᴋ", data="beck")],
         ],
     )
 
@@ -152,28 +152,29 @@ async def ihelp(event):
 async def beck(event):
     sender = event.query.user_id
     currentTime = tf(time.time() - botStartTime)
-   # msg = ""
-   # msg1 = f"Hi `{event.sender.first_name}`\n"
-   # msg2 = (
-     #   f"{msg1}I've been alive for `{currentTime}` and i'm ready to encode videos 😗"
-   # )
-  #  msg3 = f"{msg2}\nand by the way you're a temporary user"
-  #  if temp_is_allowed(sender):
-     #   msg = msg3
-   # elif not user_is_allowed(sender):
-    #    priv = await event.client.get_entity(int(conf.OWNER.split()[0]))
-    #    msg = f"{msg1}You're not allowed access to this bot"
-     #   msg += f"\nAsk [{priv.first_name}](tg://user?id={conf.OWNER.split()[0]}) "
-      #  msg += "(nicely) to grant you access."
-  #  if not msg:
-      #  msg = msg2
+    msg = ""
+    msg1 = f"Hi `{event.sender.first_name}`\n"
+    msg2 = (
+        f"{msg1}I've been alive for `{currentTime}` and i'm ready to encode videos 😗"
+    )
+    msg3 = f"{msg2}\nand by the way you're a temporary user"
+    if temp_is_allowed(sender):
+        msg = msg3
+    elif not user_is_allowed(sender):
+        priv = await event.client.get_entity(int(conf.OWNER.split()[0]))
+        msg = f"{msg1}You're not allowed access to this bot"
+        msg += f"\nAsk [{priv.first_name}](tg://user?id={conf.OWNER.split()[0]}) "
+        msg += "(nicely) to grant you access."
+    if not msg:
+        msg = msg2
     await event.edit(
-        msg=Hey,
+        msg,
         buttons=[
             [Button.url("⚡ 𝖴𝗉𝖽𝖺𝗍𝖾𝗌", url='t.me/Rokubotz'), Button.url('⚡ 𝖲𝗎𝗉𝗉𝗈𝗋𝗍', url='t.me/Team_Roku')],
             [Button.url('👨‍💻 𝖣𝖾𝗏𝖾𝗅𝗈𝗉𝖾𝗋', url='t.me/MysteryDemon'), Button.inline('❗ 𝖧𝖾𝗅𝗉', data="ihelp")]
         ],
     )
+
 
 
 async def temp_unauth(event, args, client):
@@ -320,4 +321,4 @@ help{s} - same as start`
 All above commands accept '-h' / '--help' arguments to get more detailed help about each command.
         """,
         buttons=[Button.inline("🔙 Back", data="ihelp")],
-    )
+)
