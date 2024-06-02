@@ -431,15 +431,16 @@ async def thing():
       #  )
         await mi_msg.copy(chat_id=log_channel) if op else None
 
-       # st_msg = await up.reply(
-          #  f"**Encode Stats:**\n\nOriginal Size: "
+        st_msg = await up.reply(
+             f"**Encode Stats:**\n\nOriginal Size: "
          #   f"`{hbs(org_s)}`\nEncoded Size: `{hbs(out_s)}`\n"
          #   f"Encoded Percentage: `{per}`\n\n"
           #  f"{'Cached' if einfo.cached_dl else 'Downloaded'} in `{dtime}`\n"
         #    f"Encoded in `{etime}`\n{mux_msg}Uploaded in `{utime}`",
-          #  disable_web_page_preview=True,
-          #  quote=True,
-       # )
+            [Button.inline("Help", data="ihelp")],
+            disable_web_page_preview=True,
+            quote=True,
+        )
         await st_msg.copy(chat_id=log_channel) if op else None
         await forward_task
 
