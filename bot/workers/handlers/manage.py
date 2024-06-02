@@ -199,16 +199,6 @@ async def allowgroupenc(event, args, client):
         - on/enable (enable group encode)
         <All arguments are not case sensitive.>
     """
-    #if not user_is_owner(event.sender_id):
-    #return await event.delete()
-
-   # groupenc = get_var("groupenc")  # Assuming this is a global variable or a function
-    
-# Always enable group encoding
-    #if not groupenc:  # If it's not already set
-    #groupenc.append(1) 
-
-    #await event.reply("Group Encoding is now always enabled.")
 
 
 async def set_mux_args(event, args, client):
