@@ -424,7 +424,7 @@ async def thing():
         #if mi:
        #     text += f"\n\nMediainfo: **[(Source)]({mi})**"
        # mi_msg = await up.reply(
-            text,
+      #      text,
          #   disable_web_page_preview=True,
            # quote=True,
        # )
