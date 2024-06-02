@@ -27,8 +27,8 @@ class Uploader:
                 else:
                     thum = thumb
             code(self, index=self.id)
-            fm = f"**From folder:** `{os.path.split(filepath)[0]}`"
-            fm += f"\n**File:** `{os.path.split(filepath)[1]}`"
+            #fm = f"**From folder:** {os.path.split(filepath)[0]}"
+            fm += f"__**\n{os.path.split(filepath)[1]}**__\n"
             async with tele.action(from_user_id, "file"):
                 await reply.edit("🔺Uploading🔺")
                 self.time = u_start = time.time()
@@ -98,7 +98,7 @@ class Uploader:
             tmp = (
                 progress
                 #+ "`{0} of {1}`\n**Speed:** `{2}/s`\n**ETA:** `{3}`\n**Elapsed:** `{4}`\n".format(
-                + "‣ **Processed:** {0} of {1}\n‣ **Status:** Download | **ETA:** {3}\n‣ **Speed:** {2}/s | **Elapsed:** {4}".format(
+                + "‣ **Processed:** {0} of {1}\n‣ **Status:** Upload | **ETA:** {3}\n‣ **Speed:** {2}/s | **Elapsed:** {4}".format(
                     hbs(current),
                     hbs(total),
                     hbs(speed),
@@ -109,7 +109,7 @@ class Uploader:
             try:
                 # Create a "Cancel" button
                 cancel_button = InlineKeyboardButton(
-                    text=f"Cancel", callback_data=self.callback_data
+                    text=f"CANCEL", callback_data=self.callback_data
                 )
                 # Attach the button to the message with an inline keyboard
                 reply_markup = InlineKeyboardMarkup([[cancel_button]])
