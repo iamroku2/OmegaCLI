@@ -98,15 +98,15 @@ class Downloader:
         if self.lc:
             try:
                 cancel_button = InlineKeyboardButton(
-                    text=f"{enmoji()} CANCEL DOWNLOAD", callback_data=self.callback_data
+                    text=f"CANCEL DOWNLOAD", callback_data=self.callback_data
                 )
                 more_button = InlineKeyboardButton(
-                    text="ℹ️",
+                    text="",
                     callback_data=f"more 1",
                 )
                 reply_markup = InlineKeyboardMarkup([[more_button], [cancel_button]])
                 dl_info = await parse_dl(self.file_name)
-                msg = "Currently downloading a video"
+                msg = f"**Downloading __{download.name}__"
                 if self.uri:
                     msg += " from a link"
                 message = await pyro.get_messages(self.lc.chat_id, self.lc.id)
@@ -134,9 +134,9 @@ class Downloader:
                 self.time = ttt = time.time()
                 media_type = str(message.media)
                 if media_type == "MessageMediaType.DOCUMENT":
-                    media_mssg = "`Downloading a file…`"
+                    media_mssg = f"**Downloading** __{download.name}__"
                 else:
-                    media_mssg = "`Downloading a video…`"
+                    media_mssg = f"**Downloading** __{download.name}__"
                 download_task = await pyro.download_media(
                     message=message,
                     file_name=dl,
