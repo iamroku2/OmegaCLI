@@ -40,7 +40,7 @@ class Var_list:
     LAST_ENCD = []
     PAUSEFILE = []
     USER_MAN = []
-    GROUPENC = Conf.GROUP_ID
+    GROUPENC = conf.GROUP_ID
     VERSION2 = []
     U_CANCEL = []
     R_QUEUE = []
