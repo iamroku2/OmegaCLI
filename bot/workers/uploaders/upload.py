@@ -52,7 +52,7 @@ class Uploader:
                     )
         
                     reply_markup = InlineKeyboardMarkup([[cancel_button]]
-                    #),
+                    ),
                 #)
             decode(self.id, pop=True)
             return s
