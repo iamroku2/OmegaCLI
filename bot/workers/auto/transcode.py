@@ -429,37 +429,49 @@ async def thing():
         mi = await info(dl)
         forward_task = asyncio.create_task(forward_(name, out, up, mi, f))
 
-        
         text += f"**Source:** `[{rlsgrp}]`"
         if mi:
             text += f"\n\nMediainfo: **[(Source)]({mi})**"
-        #mi_msg = await up.reply_document(
-           # text,
-           # disable_web_page_preview=True,
-            #quote=True,
-            #caption=caption
-        mi_msg=pyrogram.types.InlineKeyboardMarkup(
+        mi_msg = await up.reply(
+            text,
+            disable_web_page_preview=True,
+            quote=True,
+            reply_markup=pyrogram.types.InlineKeyboardMarkup(
         [
             [
                 pyrogram.types.InlineKeyboardButton(
-                    text="Download", url="https://github.com/Salxchange/UndergroundCLI"
-                )
-            ]
+                    text="Before info", url=f"{mi}"),
+                pyrogram.types.InlineKeyboardButton(
+                    text="After info", url=f"{mi}"
+                ),
+            ],
+            [
+                pyrogram.types.InlineKeyboardButton(
+                    text="", url="https://example.com/button3"
+                ),
+                pyrogram.types.InlineKeyboardButton(
+                    text="", url="https://example.com/button4"
+                ),
+            ],
+            [
+                pyrogram.types.InlineKeyboardButton(
+                    text="", url="https://example.com/button5"
+                ),
+            ],
         ]
-    ),
-        
+    )
         await mi_msg.copy(chat_id=log_channel) if op else None
 
       #  st_msg = await up.reply(
-           #  f"**Encode Stats:**\n\nOriginal Size: "
-            #f"`{hbs(org_s)}`\nEncoded Size: `{hbs(out_s)}`\n"
-           # f"Encoded Percentage: `{per}`\n\n"
-         #   f"{'Cached' if einfo.cached_dl else 'Downloaded'} in `{dtime}`\n"
+        #    f"**Encode Stats:**\n\nOriginal Size: "
+          #  f"`{hbs(org_s)}`\nEncoded Size: `{hbs(out_s)}`\n"
+         #   f"Encoded Percentage: `{per}`\n\n"
+          #  f"{'Cached' if einfo.cached_dl else 'Downloaded'} in `{dtime}`\n"
          #   f"Encoded in `{etime}`\n{mux_msg}Uploaded in `{utime}`",
-        #    [Button.inline("Help", data="ihelp")],
-         #   disable_web_page_preview=True,
-          #  quote=True,
-        #)
+           # disable_web_page_preview=True,
+       #     quote=True,
+       # )
+        
         await st_msg.copy(chat_id=log_channel) if op else None
         await forward_task
 
