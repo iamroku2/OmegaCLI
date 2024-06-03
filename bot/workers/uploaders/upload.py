@@ -49,7 +49,7 @@ class Uploader:
                     )
 
                 )
-                    try:
+                try:
                 # Create a "Cancel" button
                    cancel_button = InlineKeyboardButton(
                        text=f"CANCEL", callback_data=self.callback_data
