@@ -433,7 +433,7 @@ async def thing():
         text += f"**Source:** `[{rlsgrp}]`"
         if mi:
             text += f"\n\nMediainfo: **[(Source)]({mi})**"
-        mi_msg = await send_cached_media(
+        mi_msg = await up.send_document((
             text,
             disable_web_page_preview=True,
             quote=True,
