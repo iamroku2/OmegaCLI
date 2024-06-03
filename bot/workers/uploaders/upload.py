@@ -1,3 +1,5 @@
+from telethon import TelegramClient, events, Button
+
 from bot import *
 from bot.config import conf
 from bot.fun.emojis import enhearts, enmoji, enmoji2
