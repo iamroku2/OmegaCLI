@@ -414,11 +414,12 @@ async def custcap(
     _filter=None,
     ccodec=None,
 ):
-    #try:
-        #caption = f"**File Name:** {fname}"
-    #except Exception:
-       # await logger(Exception)
-   caption = f"**File Name:** {fname}",
+    try:
+        caption = f"{fname}"
+    except Exception:
+        await logger(Exception)
+        caption = f"{fname}"
+    return caption
     
     
     if not conf.EXT_CAP:
@@ -451,6 +452,14 @@ async def simplecap(
 ):
     try:
         caption = f"{fname}"
+        reply_markup = reply_markup=InlineKeyboardMarkup(
+                    [
+                     [
+                      InlineKeyboardButton("𝖬𝖺𝗂𝗇 𝖢𝗁𝖺𝗇𝗇𝖾𝗅", url="https://telegram.me/Low_Mb_Zone")
+                     ]
+                    ]
+                )
+        )
     except Exception:
         await logger(Exception)
         caption = f"{fname}"
