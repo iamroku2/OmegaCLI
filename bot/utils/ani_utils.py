@@ -414,17 +414,17 @@ async def custcap(
     _filter=None,
     ccodec=None,
 ):
-    try:
-        caption = f"**File Name:** {fname}"
-    except Exception:
-        await logger(Exception)
+    #try:
+        #caption = f"**File Name:** {fname}"
+    #except Exception:
+       # await logger(Exception)
         caption = f"**File Name:** {fname}"
    # return caption   
     url_button = pyrogram.types.InlineKeyboardMarkup(
     [[pyrogram.types.InlineKeyboardButton(text="Download", url="https://github.com/Salxchange/UndergroundCLI")]]
 )
 
-    return caption, url_button
+    #return caption, url_button
     
     if not conf.EXT_CAP:
         return await simplecap(
