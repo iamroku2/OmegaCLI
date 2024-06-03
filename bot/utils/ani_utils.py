@@ -418,28 +418,24 @@ async def custcap(
         #caption = f"**File Name:** {fname}"
     #except Exception:
        # await logger(Exception)
-   caption = f"**File Name:** {fname}"
-   # return caption   
-   url_button = pyrogram.types.InlineKeyboardMarkup([[pyrogram.types.InlineKeyboardButton(text="Download", url="https://github.com/Salxchange/UndergroundCLI")]]
-)
-
-    #return caption, url_button
+   caption = f"**File Name:** {fname}",
     
-    #if not conf.EXT_CAP:
-     #   return await simplecap(
-       #     name, fname, anilist, cust_type, folder, ver, encoder, _filter, ccodec
-      #  )
-    #try:
-       # om = fname.split(".")[0]
-       # ot = om.split("@")[0]
-       # caption = f"**{ot}**\n\n**🔗 {conf.C_LINK}**"
-      #  return caption
-    #except Exception:
-      #  await logger(Exception)
-      #  om = fname.split(".")[0]
-       # ot = om.split("@")[0]
-      #  caption = f"**{ot}**\n\n**🔗 {conf.C_LINK}**"
-   # return caption
+    
+    if not conf.EXT_CAP:
+        return await simplecap(
+            name, fname, anilist, cust_type, folder, ver, encoder, _filter, ccodec
+        )
+    try:
+        om = fname.split(".")[0]
+        ot = om.split("@")[0]
+        caption = f"**{ot}**\n\n**🔗 {conf.C_LINK}**"
+        return caption
+    except Exception:
+        await logger(Exception)
+        om = fname.split(".")[0]
+        ot = om.split("@")[0]
+        caption = f"**{ot}**\n\n**🔗 {conf.C_LINK}**"
+    return caption
 
 
 async def simplecap(
