@@ -442,12 +442,12 @@ async def thing():
                 pyrogram.types.InlineKeyboardButton(
                     text="Before info", url=f"{mi}"),
                 pyrogram.types.InlineKeyboardButton(
-                    text="After info", url=f"{mi}"
+                    text="After info", url=f"{ot}"
                 ),
             ],
             [
                 pyrogram.types.InlineKeyboardButton(
-                    text="", url="https://example.com/button3"
+                    text=f"Encoded in {etime}",
                 ),
                 pyrogram.types.InlineKeyboardButton(
                     text="", url="https://example.com/button4"
