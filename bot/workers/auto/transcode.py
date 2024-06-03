@@ -435,8 +435,9 @@ async def thing():
             text += f"\n\nMediainfo: **[(Source)]({mi})**"
         mi_msg = await up.reply_document(
             text,
-            disable_web_page_preview=True,
-            quote=True,
+           # disable_web_page_preview=True,
+            #quote=True,
+            caption=caption
             reply_markup=pyrogram.types.InlineKeyboardMarkup(
         [
             [
