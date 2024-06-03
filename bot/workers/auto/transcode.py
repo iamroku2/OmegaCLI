@@ -1,5 +1,7 @@
 from bot import Button, botStartTime, dt, subprocess, version_file
-
+from pyrogram.types import InputMediaPhoto
+from pyrogram import Client, filters, enums
+from pyrogram.errors import ChatAdminRequired, FloodWait
 import pyrogram 
 
 from telethon import events, Button
