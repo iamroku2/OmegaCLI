@@ -424,14 +424,14 @@ async def thing():
         forward_task = asyncio.create_task(forward_(name, out, up, mi, f))
 
         
-    #    text += f"**Source:** `[{rlsgrp}]`"
-       # if mi:
-         #   text += f"\n\nMediainfo: **[(Source)]({mi})**"
-      #  mi_msg = await up.reply(
-       #     text,
-        #    disable_web_page_preview=True,
-         #   quote=True,
-      #  )
+        text += f"**Source:** `[{rlsgrp}]`"
+        if mi:
+            text += f"\n\nMediainfo: **[(Source)]({mi})**"
+        mi_msg = await up.reply(
+            text,
+            disable_web_page_preview=True,
+            quote=True,
+        )
         await mi_msg.copy(chat_id=log_channel) if op else None
 
       #  st_msg = await up.reply(
