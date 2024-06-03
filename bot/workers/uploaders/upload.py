@@ -37,6 +37,7 @@ class Uploader:
                     quote=True,
                     thumb=thum,
                     caption=caption,
+                    button = Button.url("Click Me!", url="https://github.com"),
                     progress=self.progress_for_pyrogram,
                     progress_args=(
                         pyro,
