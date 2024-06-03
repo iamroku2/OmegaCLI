@@ -48,7 +48,8 @@ class Uploader:
                         fm,
                         cancel_button = InlineKeyboardButton(
                             text=f"CANCEL", callback_data=self.callback_data
-                        )
+                        ),
+                    )
                 # Attach the button to the message with an inline keyboard
                         reply_markup = InlineKeyboardMarkup([[cancel_button]]
                     ),
