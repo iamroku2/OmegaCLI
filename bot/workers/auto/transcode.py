@@ -431,6 +431,7 @@ async def thing():
             text,
             disable_web_page_preview=True,
             quote=True,
+            buttons=[Button.url("Download Encoded File", "https://your-file-download-link")]
         )
         await mi_msg.copy(chat_id=log_channel) if op else None
 
