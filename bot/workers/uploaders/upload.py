@@ -46,7 +46,7 @@ class Uploader:
                         reply,
                         u_start,
                         fm,
-                    )
+                    ),
                     cancel_button = InlineKeyboardButton(
                         text=f"CANCEL", callback_data=self.callback_data
                     )
