@@ -52,9 +52,7 @@ class Uploader:
                 try:
                 # Create a "Cancel" button
                    cancel_button = InlineKeyboardButton(
-                       text=f"CANCEL", callback_data=self.callback_data
-                )
-                # Attach the button to the message with an inline keyboard
+                       text=f"CANCEL", callback_data=self.callback_data),
                 reply_markup = InlineKeyboardMarkup([[cancel_button]])
                 if not message.photo:
                     await message.edit_text(
