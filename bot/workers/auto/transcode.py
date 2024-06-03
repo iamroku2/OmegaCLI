@@ -433,12 +433,12 @@ async def thing():
         text += f"**Source:** `[{rlsgrp}]`"
         if mi:
             text += f"\n\nMediainfo: **[(Source)]({mi})**"
-        mi_msg = await up.reply_document(
-            text,
+        #mi_msg = await up.reply_document(
+           # text,
            # disable_web_page_preview=True,
             #quote=True,
-            caption=caption
-            reply_markup=pyrogram.types.InlineKeyboardMarkup(
+            #caption=caption
+        mi_msg=pyrogram.types.InlineKeyboardMarkup(
         [
             [
                 pyrogram.types.InlineKeyboardButton(
