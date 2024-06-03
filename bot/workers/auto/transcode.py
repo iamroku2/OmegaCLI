@@ -447,7 +447,7 @@ async def thing():
             ],
             [
                 pyrogram.types.InlineKeyboardButton(
-                    text=f"Encoded in {etime}"), 
+                    text=f"Encoded in {etime}", callback_data="callme"), 
                 ),
                 pyrogram.types.InlineKeyboardButton(
                     text="", url="https://example.com/button4"
