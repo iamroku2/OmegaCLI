@@ -1,3 +1,16 @@
+from telethon.tl.types import InputPeerEmpty, InputPeerChannel, InputPeerUser, PeerChannel
+from telethon.errors.rpcerrorlist import PeerFloodError, UserPrivacyRestrictedError
+from telethon.tl.functions.messages import GetDialogsRequest
+from telethon.tl.functions.messages import SendMessageRequest
+import sys
+import os
+import random
+import time
+import logging
+import requests
+from bs4 import BeautifulSoup
+import re
+
 
 from telethon import events, Button 
 import string
