@@ -450,16 +450,12 @@ async def simplecap(
     _filter=None,
     ccodec=None,
 ):
-    try:
-        caption = f"{fname}"
-        reply_markup = reply_markup=InlineKeyboardMarkup(
-                    [
-                     [
-                      InlineKeyboardButton("𝖬𝖺𝗂𝗇 𝖢𝗁𝖺𝗇𝗇𝖾𝗅", url="https://telegram.me/Low_Mb_Zone")
-                     ]
-                    ]
-                )
-        )
+    if conf.FL_CAP:
+        return f"`{fname}`"
+    if not conf.EXT_CAP:
+        return await simplecap(
+            name, fname, anilist, cust_type, folder, ver, encoder, _filter, ccodec
+            )
     except Exception:
         await logger(Exception)
         caption = f"{fname}"
