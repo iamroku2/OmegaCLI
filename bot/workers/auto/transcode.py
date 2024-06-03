@@ -447,7 +447,7 @@ async def thing():
             ]
         ]
     ),
-        )
+        
         await mi_msg.copy(chat_id=log_channel) if op else None
 
       #  st_msg = await up.reply(
