@@ -1,5 +1,7 @@
 from bot import Button, botStartTime, dt, subprocess, version_file
 
+from telethon import events, Button
+from telethon.tl.functions.messages import GetPeerDialogsRequest
 
 from os.path import split as path_split
 from os.path import splitext as split_ext
