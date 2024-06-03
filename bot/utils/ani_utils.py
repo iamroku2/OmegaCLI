@@ -11,6 +11,7 @@ import requests
 #from bs4 import BeautifulSoup
 import re
 
+from pyrogram import Client 
 
 from telethon import events, Button 
 import string
