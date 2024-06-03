@@ -455,10 +455,17 @@ async def simplecap(
     if not conf.EXT_CAP:
         return await simplecap(
             name, fname, anilist, cust_type, folder, ver, encoder, _filter, ccodec
-            )
+        )
+    try:
+        om = fname.split(".")[0]
+        ot = om.split("@")[0]
+        caption = f"**{ot}**\n\n**🔗 {conf.C_LINK}**"
+        return caption
     except Exception:
         await logger(Exception)
-        caption = f"{fname}"
+        om = fname.split(".")[0]
+        ot = om.split("@")[0]
+        caption = f"**{ot}**\n\n**🔗 {conf.C_LINK}**"
     return caption
 
 
