@@ -1,3 +1,5 @@
+import pyrogram 
+
 from telethon.tl.types import InputPeerEmpty, InputPeerChannel, InputPeerUser, PeerChannel
 from telethon.errors.rpcerrorlist import PeerFloodError, UserPrivacyRestrictedError
 from telethon.tl.functions.messages import GetDialogsRequest
@@ -417,7 +419,12 @@ async def custcap(
     except Exception:
         await logger(Exception)
         caption = f"**File Name:** {fname}"
-    return caption     
+   # return caption   
+    url_button = pyrogram.types.InlineKeyboardMarkup(
+    [[pyrogram.types.InlineKeyboardButton(text="Download", url="your_download_link_here")]]
+)
+
+return caption, url_button
     
     if not conf.EXT_CAP:
         return await simplecap(
