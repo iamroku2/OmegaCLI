@@ -413,15 +413,11 @@ async def custcap(
     ccodec=None,
 ):
     try:
-        caption = f"File Name: {fname}"
+        caption = f"**File Name:** {fname}"
     except Exception:
         await logger(Exception)
-        caption = f"File Name: {fname}"
-   # return caption
-    buttons = [Button.inline("Download", data="download")]
-
-    # Send the message with the button
-    await Client.send_message(e.chat_id, caption, buttons=buttons)
+        caption = f"**File Name:** {fname}"
+    return caption     
     
     if not conf.EXT_CAP:
         return await simplecap(
