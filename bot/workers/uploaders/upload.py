@@ -10,7 +10,7 @@ from bot.utils.bot_utils import UN_FINISHED_PROGRESS_STR as unfin_str
 from bot.utils.bot_utils import code, decode, hbs, time_formatter
 from bot.utils.log_utils import logger
 from bot.utils.os_utils import file_exists
-from bot.utils.ani_utils import *
+from bot.utils.ani_utils import mi
 
 from bot.utils.bot_utils import encode_info as einfo
 from.bot.workers.auto.transcode import *
