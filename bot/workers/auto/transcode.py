@@ -432,36 +432,36 @@ async def thing():
         text += f""
         if mi:
             text += f"Encoder"
-        mi_msg = await up.reply(
-            text,
-            disable_web_page_preview=True,
-            quote=True,
-            reply_markup=pyrogram.types.InlineKeyboardMarkup(
-        [
-            [
-                pyrogram.types.InlineKeyboardButton(
-                    text="Before info", url=f"{mi}"),
-                pyrogram.types.InlineKeyboardButton(
-                    text="After info", url=f"{mi}"
-                ),
-            ],
-            [
-                pyrogram.types.InlineKeyboardButton(
-                    text=f"Encoded in {etime}", callback_data="callme"
-                ),
-                pyrogram.types.InlineKeyboardButton(
-                    text="", url="https://example.com/button4"
-                ),
-            ],
-            [
-                pyrogram.types.InlineKeyboardButton(
-                    text="", url="https://example.com/button5"
-                ),
-            ],
-        ]
-    )
-)
-        await mi_msg.copy(chat_id=log_channel) if op else None
+       # mi_msg = await up.reply(
+         #   text,
+          #  disable_web_page_preview=True,
+           # quote=True,
+        #    reply_markup=pyrogram.types.InlineKeyboardMarkup(
+        #[
+          #  [
+              #  pyrogram.types.InlineKeyboardButton(
+               #     text="Before info", url=f"{mi}"),
+               # pyrogram.types.InlineKeyboardButton(
+                #    text="After info", url=f"{mi}"
+               # ),
+          #  ],
+           # [
+              #  pyrogram.types.InlineKeyboardButton(
+              #      text=f"Encoded in {etime}", callback_data="callme"
+             #   ),
+             #   pyrogram.types.InlineKeyboardButton(
+             #       text="", url="https://example.com/button4"
+            #    ),
+          #  ],
+           # [
+            #    pyrogram.types.InlineKeyboardButton(
+               #     text="", url="https://example.com/button5"
+              #  ),
+          #  ],
+       # ]
+   # )
+#)
+        #await mi_msg.copy(chat_id=log_channel) if op else None
 
       #  st_msg = await up.reply(
         #    f"**Encode Stats:**\n\nOriginal Size: "
