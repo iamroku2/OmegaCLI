@@ -53,8 +53,8 @@ class Uploader:
         [
             [
                                 InlineKeyboardButton(
-                                    text="Download",
-                                    url="https://mywebsite.com/downloads/myfile.pdf"
+                                    text="Before info",
+                                    url="{mi}"
                 )
             ]
         ]
