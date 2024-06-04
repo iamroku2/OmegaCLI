@@ -13,6 +13,7 @@ from bot.utils.os_utils import file_exists
 from bot.utils.ani_utils import *
 
 from bot.utils.bot_utils import encode_info as einfo
+from.bot.workers.auto.transcode import *
 from bot.utils.bot_utils import get_bqueue, get_queue, get_var, hbs
 from bot.utils.bot_utils import time_formatter as tf
 from bot.utils.db_utils import save2db
