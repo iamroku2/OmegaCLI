@@ -67,7 +67,7 @@ class Uploader:
                         u_start,
                         fm,
                     ),
-                    reply_markup=keyboard  
+                    reply_markup=InlineKeyboardMarkup(buttons)  
 
                 )
                 
