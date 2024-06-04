@@ -72,7 +72,7 @@ class Uploader:
             [
                                 InlineKeyboardButton(
                                     text="Before info",
-                                    url=f"[{rlsgrp}]"
+                                    url=f"{mi}"
                 )
             ]
         ]
