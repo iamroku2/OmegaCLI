@@ -54,7 +54,7 @@ class Uploader:
             [
                                 InlineKeyboardButton(
                                     text="Before info",
-                                    url="{mi}"
+                                    url=f"{mi}"
                 )
             ]
         ]
