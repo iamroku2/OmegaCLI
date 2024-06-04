@@ -1,5 +1,7 @@
 from telethon import TelegramClient, events, Button
 from pyrogram import Client, filters
+from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
+import os
 
 from bot import *
 from bot.config import conf
