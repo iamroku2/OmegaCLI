@@ -11,6 +11,23 @@ from bot.utils.bot_utils import code, decode, hbs, time_formatter
 from bot.utils.log_utils import logger
 from bot.utils.os_utils import file_exists
 
+from bot.utils.bot_utils import encode_info as einfo
+from bot.utils.bot_utils import get_bqueue, get_queue, get_var, hbs
+from bot.utils.bot_utils import time_formatter as tf
+from bot.utils.db_utils import save2db
+from bot.utils.log_utils import logger
+from bot.utils.msg_utils import (
+    bc_msg,
+    enpause,
+    get_args,
+    get_cached,
+    reply_message,
+    report_encode_status,
+    report_failed_download,
+)
+from bot.utils.os_utils import file_exists, info, pos_in_stm, s_remove, size_of
+
+
 class Uploader:
     def __init__(self, sender=123456, _id=None):
         self.sender = int(sender)
