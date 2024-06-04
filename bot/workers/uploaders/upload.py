@@ -1,4 +1,5 @@
 from telethon import TelegramClient, events, Button
+from pyrogram import Client, filters
 
 from bot import *
 from bot.config import conf
