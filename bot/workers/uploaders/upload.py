@@ -9,6 +9,23 @@ from bot.utils.log_utils import logger
 from bot.utils.os_utils import file_exists
 
 
+@Client.on_message(filters.document)
+async def handle_document(client, message):
+    # ... your existing code to handle the document ...
+
+    # Define the URL buttons
+    buttons = [
+        [InlineKeyboardButton(text="URL 1", url="https://www.example.com/url1")],
+        [InlineKeyboardButton(text="URL 2", url="https://www.example.com/url2")],
+        [InlineKeyboardButton(text="URL 3", url="https://www.example.com/url3")],
+        [InlineKeyboardButton(text="URL 4", url="https://www.example.com/url4")],
+        [InlineKeyboardButton(text="URL 5", url="https://www.example.com/url5")]
+    ]
+
+    # Create the keyboard markup
+    keyboard = InlineKeyboardMarkup(buttons)
+
+
 class Uploader:
     def __init__(self, sender=123456, _id=None):
         self.sender = int(sender)
@@ -46,7 +63,8 @@ class Uploader:
                         reply,
                         u_start,
                         fm,
-                    )
+                    ),
+                    reply_markup=keyboard  
 
                 )
                 
