@@ -49,25 +49,6 @@ class Uploader:
                     )
 
                 )
-                try:
-                # Create a "Cancel" button
-                   cancel_button = InlineKeyboardButton(
-                       text=f"CANCEL", callback_data=self.callback_data),
-                reply_markup = InlineKeyboardMarkup([[cancel_button]])
-                if not message.photo:
-                    await message.edit_text(
-                        text="{}\n{}".format(ud_type, tmp),
-                        reply_markup=reply_markup,
-                    )
-                else:
-                    await message.edit_caption(
-                        caption="{}\n{}".format(ud_type, tmp),
-                        reply_markup=reply_markup,
-                    )
-            except pyro_errors.FloodWait as e:
-                await asyncio.sleep(e.value)
-            except BaseException:
-                pass
                 
             decode(self.id, pop=True)
             return s
