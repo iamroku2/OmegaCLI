@@ -174,56 +174,6 @@ async def _(e):
     await event_handler(e, clearqueue, require_args=True)
 
 
-@tele.on(events.NewMessage(pattern=command(["permit"])))
-async def _(e):
-    await event_handler(e, temp_auth, pyro)
-
-
-@tele.on(events.NewMessage(pattern=command(["unpermit"])))
-async def _(e):
-    await event_handler(e, temp_unauth, pyro)
-
-
-@tele.on(events.NewMessage(pattern=command(["groupenc"])))
-async def _(e):
-    await event_handler(e, allowgroupenc)
-
-
-@tele.on(events.NewMessage(pattern=command(["parse"])))
-async def _(e):
-    await event_handler(e, discap, require_args=True)
-
-
-@tele.on(events.NewMessage(pattern=command(["v"])))
-async def _(e):
-    await event_handler(e, version2)
-
-
-@tele.on(events.NewMessage(pattern=command(["filter"])))
-async def _(e):
-    await event_handler(e, filter_, require_args=True)
-
-
-@tele.on(events.NewMessage(pattern=command(["vfilter"])))
-async def _(e):
-    await event_handler(e, vfilter)
-
-
-@tele.on(events.NewMessage(pattern=command(["delfilter"])))
-async def _(e):
-    await event_handler(e, rmfilter)
-
-
-@tele.on(events.NewMessage(pattern=command(["mset"])))
-async def _(e):
-    await event_handler(e, set_mux_args, require_args=True)
-
-
-@tele.on(events.NewMessage(pattern=command(["mget"])))
-async def _(e):
-    await event_handler(e, get_mux_args)
-
-
 @tele.on(events.NewMessage(pattern=command(["get"])))
 async def _(e):
     await event_handler(e, check)
@@ -242,11 +192,6 @@ async def _(e):
 @tele.on(events.NewMessage(pattern=command(["lock", "pause"])))
 async def _(e):
     await event_handler(e, pause)
-
-
-@tele.on(events.NewMessage(pattern=command(["rss"])))
-async def _(e):
-    await event_handler(e, rss_handler, require_args=True)
 
 
 ######## Callbacks #########
@@ -305,24 +250,9 @@ async def _(e):
     await event_handler(e, enleech, pyro)
 
 
-@tele.on(events.NewMessage(pattern=command(["qbleech", "ql"])))
-async def _(e):
-    await event_handler(e, enleech2, pyro)
-
-
 @tele.on(events.NewMessage(pattern=command(["list"], ["/", "!"])))
 async def _(e):
     await event_handler(e, en_list, pyro, require_args=True)
-
-
-@tele.on(events.NewMessage(pattern=command(["select", "s"])))
-async def _(e):
-    await event_handler(e, enselect, pyro, require_args=True)
-
-
-@tele.on(events.NewMessage(pattern=command(["add", "releech"])))
-async def _(e):
-    await event_handler(e, addqueue, pyro)
 
 
 @tele.on(events.NewMessage(pattern=command(["download", "dl"], ["/", "!", "/"])))
@@ -333,16 +263,6 @@ async def _(e):
 @tele.on(events.NewMessage(pattern=command(["upload", "ul"], ["/", "!", "/"])))
 async def _(e):
     await event_handler(e, en_upload, pyro, require_args=True)
-
-
-@tele.on(events.NewMessage(pattern=command(["rename", "rn"], ["/", "!", "/"])))
-async def _(e):
-    await event_handler(e, en_rename, pyro)
-
-
-@tele.on(events.NewMessage(pattern=command(["mux"], ["/", "!"])))
-async def _(e):
-    await event_handler(e, en_mux, pyro, require_args=True)
 
 
 @pyro.on_message(filters.incoming & filters.command([f"peval{cmd_suffix}"]))
@@ -363,39 +283,10 @@ async def _(e):
     await event_handler(e, bash, require_args=True)
 
 
-@tele.on(events.NewMessage(pattern=command(["airing"])))
-async def _(e):
-    await event_handler(e, en_airing, require_args=True)
-
-
-@tele.on(events.NewMessage(pattern=command(["anime"])))
-async def _(e):
-    await event_handler(e, en_anime, require_args=True)
-
-
-@tele.on(events.NewMessage(pattern=command(["name"])))
-async def _(e):
-    await event_handler(e, auto_rename, require_args=True)
-
-
-@tele.on(events.NewMessage(pattern=command(["vname"])))
-async def _(e):
-    await event_handler(e, v_auto_rename)
-
-
-@tele.on(events.NewMessage(pattern=command(["delname"])))
-async def _(e):
-    await event_handler(e, del_auto_rename, require_args=True)
-
 
 @tele.on(events.NewMessage(pattern=command(["queue"], ["/", "!"])))
 async def _(e):
     await event_handler(e, listqueue)
-
-
-@tele.on(events.NewMessage(pattern=command(["batch", "gb"])))
-async def _(e):
-    await event_handler(e, edit_batch, pyro)
 
 
 ######## DEBUG #########
