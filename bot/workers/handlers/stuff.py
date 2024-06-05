@@ -177,130 +177,25 @@ async def beck(event):
     )
 
 
-
-async def temp_unauth(event, args, client):
-    """
-    Un-authorise a user or chat
-    Requires either reply to message or user_id as args
-    """
-    sender = event.sender_id
-    error = "Failed!,\nCan't remove from temporarily allowed users"
-    if not user_is_owner(sender):
-        return event.reply("Not Happening.")
-    if event.is_reply:
-        rep_event = await event.get_reply_message()
-        new_id = rep_event.sender_id
-    else:
-        if args is not None:
-            args = args.strip()
-            if args.lstrip("-").isdigit():
-                new_id = int(args)
-            else:
-                return await event.reply(
-                    f"What do you mean by  `{args}` ?\nneed help? send /unpermit"
-                )
-        else:
-            return await event.reply(
-                "Either reply to a message sent by the user you want to remove from temporarily allowed users or send /unpermit (user-id)\nExample:\n  /unpermit 123456"
-            )
-    if new_id == sender:
-        return await event.reply("Why, oh why did you try to unpermit yourself?")
-    if user_is_owner(new_id):
-        return await event.reply(f"{error} because user is already a privileged user")
-    if not user_is_allowed(new_id):
-        return await event.reply(
-            f"{error} because user is not in the temporary allowed user list"
-        )
-    try:
-        new_user = await event.client.get_entity(new_id)
-        new_user = new_user.first_name
-    except Exception:
-        new_user = new_id
-    rm_temp_user(str(new_id))
-    await save2db2()
-    return await event.reply(
-        f"Removed `{new_user}` from temporarily allowed users {enmoji()}"
-    )
-
-
-async def temp_auth(event, args, client):
-    """
-    Authorizes a chat or user,
-    Requires either a reply to message or user_id as argument
-    """
-    sender = event.sender_id
-    error = "Failed!,\nCan't add to temporarily allowed users"
-    if not user_is_owner(sender):
-        return event.reply("Nope, not happening.")
-    if event.is_reply:
-        rep_event = await event.get_reply_message()
-        new_id = rep_event.sender_id
-    else:
-        if args is not None:
-            args = args.strip()
-            if args.lstrip("-").isdigit():
-                new_id = args
-            else:
-                return await event.reply(
-                    f"What do you mean by  `{args}` ?\nneed help? send /permit"
-                )
-        else:
-            return await event.reply(
-                "Either reply to a message sent by the user you want to add to temporarily allowed users or send /permit (user-id)\nExample:\n  /permit 123456"
-            )
-    new_id = int(new_id)
-    if new_id == sender:
-        return await event.reply("Why, oh why did you try to permit yourself?")
-    if user_is_owner(new_id):
-        return await event.reply(f"{error} because user is already a privileged user")
-    if user_is_allowed(new_id):
-        return await event.reply(f"{error} because user is already added")
-    try:
-        new_user = await event.client.get_entity(new_id)
-        new_user = new_user.first_name
-    except Exception:
-        new_user = new_id
-    add_temp_user(str(new_id))
-    await save2db2()
-    return await event.reply(
-        f"Added `{new_user}` to temporarily allowed users {enmoji()}"
-    )
-
-
 async def icommands(event):
     s = conf.CMD_SUFFIX or str()
     await event.edit(
-        f"""`
-/start{s} - check if bot is awake and get usage.
-
+        f"""
+__/start{s} - check if bot is awake and get usage.
 /restart{s} -  restart bot
-
 /update{s} - update bot
-
 /ping - ping!
-
 /queue{s} - list queue
-
 /forward{s} - manually forward a message to fchannel
-
 /download{s} - download a file or link to bot
-
 /upload{s} - upload from a local directory or link
-
 /get{s} - get current ffmpeg code
-
 /status{s} - get bot's status
-
 /showthumb{s} - show current thumbnail
-
 /cancelall{s} - clear cached downloads & queued files
-
 /clear{s} - clear queued files
-
 /logs{s} - get bot logs
-
-/help{s} - same as start
-
-        """,
+/help{s} - same as start__
+ """,
         buttons=[Button.inline("« Bᴀᴄᴋ", data="ihelp")],
 )
