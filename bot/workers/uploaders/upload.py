@@ -72,7 +72,7 @@ class Uploader:
             [
                                 InlineKeyboardButton(
                                     text="Before info",
-                                    url=f"{mi}"
+                                    url="https://t.me/+j9MZCHCRm5wxMjY0"
                 )
             ]
         ]
