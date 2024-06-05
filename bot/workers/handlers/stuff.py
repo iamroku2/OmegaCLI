@@ -108,7 +108,7 @@ async def start(event, args, client):
     msg3 = f"{msg2}\nand by the way you're a temporary user"
     user = event.sender_id
     if not user_is_owner(user) and event.is_private:
-        if not pm_is_allowed(in_pm=True):
+        if not pm_is_allowed(in_group=True):
             return await event.delete()
     if temp_is_allowed(user):
         msg = msg3
