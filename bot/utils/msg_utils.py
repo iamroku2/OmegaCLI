@@ -18,7 +18,7 @@ globals().update({n: getattr(var, n) for n in attrs if not n.startswith("_")})
 
 
 def user_is_allowed(user):
-    user = int(user)
+    user = (user)
     return user in conf.GROUP_ID
 
 #def user_is_allowed(user_id, in_group=True):
