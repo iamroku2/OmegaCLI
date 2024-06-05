@@ -17,9 +17,15 @@ attrs = dir(var)
 globals().update({n: getattr(var, n) for n in attrs if not n.startswith("_")})
 
 
-def user_is_allowed(user: str | int):
-    user = str(user)
-    return user in conf.GROUP_ID
+#def user_is_allowed(user: str | int):
+   # user = str(user)
+  #  return user in conf.GROUP_ID
+
+def user_is_allowed(in_group=False, in_pm=False):
+    if in_pm:
+        return not conf.NO_TEMP_PM
+    if in_group:
+        return user
 
 def user_is_owner(user: str | int):
     user = str(user)
