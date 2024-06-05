@@ -79,8 +79,6 @@ from .workers.handlers.stuff import (
     ihelp,
     start,
     status,
-    temp_auth,
-    temp_unauth,
     up,
 )
 
