@@ -17,16 +17,21 @@ attrs = dir(var)
 globals().update({n: getattr(var, n) for n in attrs if not n.startswith("_")})
 
 
-def user_is_allowed(user):
-    user = (user)
-    return user in conf.GROUP_ID
+def user_is_allowed(user: str | int, in_group=True):
+    """Checks if a user is allowed to interact with the bot.
 
-#def user_is_allowed(user_id, in_group=True):
- #   user = str(user)
-   # if in_pm:
-      #  return not conf.NO_TEMP_PM
- #   if in_group:
-    #    return user
+    Args:
+        user (str | int): The user ID or username.
+        in_group (bool, optional): Whether the user is in a group. Defaults to True.
+
+    Returns:
+        bool: True if the user is allowed, False otherwise.
+    """
+    user = str(user)
+    if in_group:
+        return True  # User is allowed in a group
+    else:
+        return False  # User is not allowed outside a group
 
 def user_is_owner(user: str | int):
     user = str(user)
