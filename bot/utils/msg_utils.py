@@ -23,8 +23,8 @@ globals().update({n: getattr(var, n) for n in attrs if not n.startswith("_")})
 
 def user_is_allowed(user: str | int, in_group=True):
     user = str(user)
-    if in_pm:
-        return not conf.NO_TEMP_PM
+   # if in_pm:
+      #  return not conf.NO_TEMP_PM
     if in_group:
         return user
 
