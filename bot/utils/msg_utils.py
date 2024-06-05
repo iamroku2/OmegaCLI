@@ -16,10 +16,9 @@ from .os_utils import s_remove
 attrs = dir(var)
 globals().update({n: getattr(var, n) for n in attrs if not n.startswith("_")})
 
-def user_is_allowed(user: str | int, group_id: int):
+def user_is_allowed(user: str | int):
     user = str(user)
-    group_id = conf.GROUP_ID
-    return user in conf.OWNER or user in TEMP_USERS or user in group_id
+    return user in conf.OWNER or user in conf.GROUP_ID
 
 def user_is_owner(user: str | int):
     user = str(user)
