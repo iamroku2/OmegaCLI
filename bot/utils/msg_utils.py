@@ -16,22 +16,11 @@ from .os_utils import s_remove
 attrs = dir(var)
 globals().update({n: getattr(var, n) for n in attrs if not n.startswith("_")})
 
-
-def user_is_allowed(user: str | int, in_group=False):
-    """Checks if a user is allowed to interact with the bot.
-
-    Args:
-        user (str | int): The user ID or username.
-        in_group (bool, optional): Whether the user is in a group. Defaults to True.
-
-    Returns:
-        bool: True if the user is allowed, False otherwise.
-    """
+def user_is_allowed(user: str | int, group_id: int):
     user = str(user)
-    if in_group:
-        return True  # User is allowed in a group
-    else:
-        return False  # User is not allowed outside a group
+    group_id = conf.GROUP_ID
+    return user in conf.OWNER or user in TEMP_USERS or user in conf.GROUP_ID
+
 
 def user_is_owner(user: str | int):
     user = str(user)
