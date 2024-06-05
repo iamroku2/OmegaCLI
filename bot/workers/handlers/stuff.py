@@ -271,21 +271,35 @@ async def icommands(event):
     s = conf.CMD_SUFFIX or str()
     await event.edit(
         f"""`
-start{s} - check if bot is awake and get usage.
-restart{s} -  restart bot
-update{s} - update bot
-ping - ping!
-queue{s} - list queue
-forward{s} - manually forward a message to fchannel
-download{s} - download a file or link to bot
-upload{s} - upload from a local directory or link
-get{s} - get current ffmpeg code
-status{s} - get bot's status
-showthumb{s} - show current thumbnail
-cancelall{s} - clear cached downloads & queued files
-clear{s} - clear queued files
-logs{s} - get bot logs
-help{s} - same as start
+/start{s} - check if bot is awake and get usage.
+
+/restart{s} -  restart bot
+
+/update{s} - update bot
+
+/ping - ping!
+
+/queue{s} - list queue
+
+/forward{s} - manually forward a message to fchannel
+
+/download{s} - download a file or link to bot
+
+/upload{s} - upload from a local directory or link
+
+/get{s} - get current ffmpeg code
+
+/status{s} - get bot's status
+
+/showthumb{s} - show current thumbnail
+
+/cancelall{s} - clear cached downloads & queued files
+
+/clear{s} - clear queued files
+
+/logs{s} - get bot logs
+
+/help{s} - same as start
 
         """,
         buttons=[Button.inline("« Bᴀᴄᴋ", data="ihelp")],
