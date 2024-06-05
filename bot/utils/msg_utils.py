@@ -17,7 +17,7 @@ attrs = dir(var)
 globals().update({n: getattr(var, n) for n in attrs if not n.startswith("_")})
 
 
-def user_is_allowed(user: str | int, in_group=True):
+def user_is_allowed(user: str | int, in_group=False):
     """Checks if a user is allowed to interact with the bot.
 
     Args:
