@@ -32,6 +32,7 @@ from bot.utils.msg_utils import (
     get_args,
     msg_sleep_delete,
     try_delete,
+    pm_is_allowed,
     user_is_allowed,
     user_is_owner,
     valid_range,
