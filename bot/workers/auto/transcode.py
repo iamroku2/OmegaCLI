@@ -16,11 +16,11 @@ from bot.config import conf
 from bot.others.exceptions import AlreadyDl
 from bot.startup.before import entime
 from bot.utils.ani_utils import custcap, dynamicthumb, f_post, parse, qparse_t
-from bot.utils.batch_utils import (
-    get_batch_list,
-    get_downloadable_batch,
-    mark_file_as_done,
-)
+#from bot.utils.batch_utils import (
+  #  get_batch_list,
+ #   get_downloadable_batch,
+  #  mark_file_as_done,
+#)
 from bot.utils.bot_utils import CACHE_QUEUE as cached
 from bot.utils.bot_utils import E_CANCEL
 from bot.utils.bot_utils import encode_info as einfo
