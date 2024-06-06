@@ -477,7 +477,7 @@ async def thing():
         await forward_task
 
         skip(queue_id)
-        mark_file_as_done(einfo.select, queue_id)
+       # mark_file_as_done(einfo.select, queue_id)
         await save2db()
         await save2db("batches")
         s_remove(thumb2)
