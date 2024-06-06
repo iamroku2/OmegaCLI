@@ -69,7 +69,7 @@ async def listqueue(event, args, client, deletable=True):
             return await listqueuep(event, or_args, client)
         return await event.reply(f"Unknown args: {args}")
     if deletable:
-        if not user_is_owner(event.sender_id) and event.is_private:
+         if not user_is_owner(event.sender_id) and event.is_private:
             return 
          if event.is_channel and not event.is_group:
             return
