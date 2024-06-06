@@ -114,8 +114,8 @@ async def start(event, args, client):
         msg = msg3
     elif not user_is_allowed(user):
         priv = await event.client.get_entity(int(conf.OWNER.split()[0]))
-        msg = f"{msg1}\n\n__**I've been alive for {currentTime} and i'm ready to encode videos 😗**__\n"
-        msg += "\n```Resolution: 854x480```\n"
+        msg = f"{msg1}\n__**I've been alive for {currentTime} and i'm ready to encode videos 😗**__\n"
+       # msg += "\n```Resolution: 854x480```\n"
         msg += f"\n**OWNER:**  [{priv.first_name}](tg://user?id={conf.OWNER.split()[0]}) "
    
     if not msg:
@@ -162,8 +162,8 @@ async def beck(event):
         msg = msg3
     elif not user_is_allowed(sender):
         priv = await event.client.get_entity(int(conf.OWNER.split()[0]))
-        msg = f"{msg1}\n\n__**I've been alive for {currentTime} and i'm ready to encode videos 😗**__\n\n"
-        msg += "\n\n```Resolution: 854x480```\n\n"
+        msg = f"{msg1}\n__**I've been alive for {currentTime} and i'm ready to encode videos 😗**__\n"
+       # msg += "\n```Resolution: 854x480```\n"
         msg += f"\n**OWNER:**  [{priv.first_name}](tg://user?id={conf.OWNER.split()[0]}) "
     if not msg:
         msg = msg2
