@@ -651,11 +651,11 @@ async def en_upload(event, args, client):
             if arg.qs:
                 file = await get_torrent(args)
                 if file.error:
-                    return await event.reply(f"`{file.error}`")
+                    return await event.reply(f"{file.error}")
                 if (ind := int(arg.qs)) > (file.count - 1):
                     return await event.reply(
                         f"'-qs': {arg.qs} is more than last file_id :- {file.count - 1}\n"
-                        f"Total files in folder :- {file.count}`"
+                        f"Total files in folder :- {file.count}"
                     )
                 qb = True
                 select = ind
@@ -721,7 +721,7 @@ async def en_upload(event, args, client):
                         continue
                     while True and _id not in u_cancelled():
                         try:
-                            cap = f"`{name}`"
+                            cap = f"{name}"
                             ul = await chain_msg.reply(
                                 f"**Uploading:-**\n**{name}**\n"
                                 f"**from 📁:**\n **{path}**\n({t}/{i})…",
@@ -761,7 +761,7 @@ async def en_upload(event, args, client):
                 await asyncio.sleep(10)
                 f_jump = arg.s or await reply_message(
                     f_jump,
-                    f"`All files in`:\n'**{path}**'\n`have been uploaded successfully. {enmoji()}`",
+                    f"All files in:\n'**{path}**'\nhave been uploaded successfully. {enmoji()}",
                 )
                 await asyncio.sleep(1)
             await ctrl.delete()
@@ -794,12 +794,12 @@ async def en_upload(event, args, client):
                 )
             else:
                 _no = 0
-                await edit_message(r, f"`Uploading of {cap} has been cancelled.`")
+                await edit_message(r, f"Uploading of {cap} has been cancelled.")
         if uri:
             await asyncio.sleep(5)
             arg.s or await reply_message(
                 event,
-                f"`{_no} file(s) have been uploaded from` `{args}` `successfully. {enmoji()}`",
+                f"{_no} file(s) have been uploaded from {args} successfully. {enmoji()}`",
             )
     except Exception as e:
         await logger(Exception)
