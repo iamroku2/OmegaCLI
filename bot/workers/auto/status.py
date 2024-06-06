@@ -5,7 +5,7 @@ from bot.fun.quips import enquip4
 from bot.fun.quotes import enquotes
 from bot.fun.stuff import lvbar
 #from bot.utils.ani_utils import qparse
-from bot.utils.batch_utils import get_batch_list
+#from bot.utils.batch_utils import get_batch_list
 from bot.utils.bot_utils import BATCH_QUEUE as bqueue
 from bot.utils.bot_utils import QUEUE as queue
 from bot.utils.bot_utils import encode_info, get_codec, get_pause_status, sync_to_async
