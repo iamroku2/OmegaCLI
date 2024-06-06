@@ -607,8 +607,7 @@ async def en_mux(event, args, client):
 async def en_upload(event, args, client):
     """
     Uploads a file from a direct link to telegram
-      Requires a reply to the direct link or use the link as argument
-     
+    Requires a reply to the direct link or use the link as argument
     """
     #if not user_is_owner(event.sender_id):
         #return await event.delete()
@@ -788,7 +787,7 @@ async def en_upload(event, args, client):
             s_remove(file) if ext else None
             if not upload.is_cancelled:
                 (
-                    await edit_message(r, f"`{cap} uploaded successfully.`")
+                    await edit_message(r, f"{cap} uploaded successfully.")
                     if not arg.s
                     else await r.delete()
                 )
