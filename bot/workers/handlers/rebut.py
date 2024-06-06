@@ -606,7 +606,7 @@ async def en_mux(event, args, client):
 
 async def en_upload(event, args, client):
     """
-    Uploads a file from a direct link to telegram
+    Upload files from a direct link to telegram
     Requires a reply to the direct link or use the link as argument
     """
     #if not user_is_owner(event.sender_id):
