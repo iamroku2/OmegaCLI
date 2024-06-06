@@ -69,9 +69,9 @@ async def listqueue(event, args, client, deletable=True):
             return await listqueuep(event, or_args, client)
         return await event.reply(f"Unknown args: {args}")
     if deletable:
-        if not user_is_allowed(event.sender_id):
-            return await try_delete(event)
-        if event.is_channel and not event.is_group:
+        #if not user_is_allowed(event.sender_id):
+            #return await try_delete(event)
+         if event.is_channel and not event.is_group:
             return
     queue = get_queue()
     empty_queue_msg = "__I'm as free as a bird 🦅__"
