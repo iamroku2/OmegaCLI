@@ -116,7 +116,7 @@ async def start(event, args, client):
         priv = await event.client.get_entity(int(conf.OWNER.split()[0]))
         msg = f"{msg1}\n__**I've been alive for {currentTime} and i'm ready to encode videos 😗**__\n"
        # msg += "\n```Resolution: 854x480```\n"
-        msg += f"\n**OWNER:**  [{priv.first_name}](tg://user?id={conf.OWNER.split()[0]}) "
+        msg += f"\n**OWNER:** [{priv.first_name}](tg://user?id={conf.OWNER.split()[0]}) "
    
     if not msg:
         msg = msg2
@@ -164,7 +164,7 @@ async def beck(event):
         priv = await event.client.get_entity(int(conf.OWNER.split()[0]))
         msg = f"{msg1}\n__**I've been alive for {currentTime} and i'm ready to encode videos 😗**__\n"
        # msg += "\n```Resolution: 854x480```\n"
-        msg += f"\n**OWNER:**  [{priv.first_name}](tg://user?id={conf.OWNER.split()[0]}) "
+        msg += f"\n**OWNER:** [{priv.first_name}](tg://user?id={conf.OWNER.split()[0]}) "
     if not msg:
         msg = msg2
     await event.edit(
