@@ -30,10 +30,10 @@ def user_is_dev(user):
     return user == conf.DEV
 
 
-def pm_is_allowed(user: str | int, in_group=True, in_pm=False):
+def pm_is_allowed(user: str | int, in_group=False, in_pm=False):
     user = str(user)
     if in_pm:
-        return not conf.NO_TEMP_PM
+        return not conf.GROUP_ID
     if in_group:
         return user in conf.GROUP_ID
 
