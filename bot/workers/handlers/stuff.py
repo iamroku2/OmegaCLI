@@ -108,7 +108,7 @@ async def start(event, args, client):
     msg3 = f"{msg2}\nand by the way you're a temporary user"
     user = event.sender_id
     if not user_is_owner(user) and event.is_private:
-        if not pm_is_allowed(in_group=True):
+        if not pm_is_allowed(in_pm=True):
             return await event.delete()
     if temp_is_allowed(user):
         msg = msg3
@@ -181,7 +181,7 @@ async def icommands(event):
     s = conf.CMD_SUFFIX or str()
     await event.edit(
         f"""
-__/start{s} - check if bot is awake and get usage.
+/start{s} - check if bot is awake and get usage.
 /restart{s} -  restart bot
 /update{s} - update bot
 /ping - ping!
@@ -195,7 +195,7 @@ __/start{s} - check if bot is awake and get usage.
 /cancelall{s} - clear cached downloads & queued files
 /clear{s} - clear queued files
 /logs{s} - get bot logs
-/help{s} - same as start__
+/help{s} - same as start
  """,
         buttons=[Button.inline("« Bᴀᴄᴋ", data="ihelp")],
 )
