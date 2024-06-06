@@ -174,7 +174,7 @@ async def listqueuep(event, args, client):
 async def enleech(event, args: str, client, direct=False):
     """
     Adds a torrent link to encoding queue:
-        Requires a reply to link torrent link or the link as argument
+        Requires a reply to magnet/torrent link or use link as argument
     """
     chat_id = event.chat_id
     user_id = event.sender_id
@@ -184,7 +184,7 @@ async def enleech(event, args: str, client, direct=False):
     mode = "None"
     o_args = None
     queue = get_queue()
-    invalid_msg = "Invalid torrent/direct link"
+    invalid_msg = "Invalid torrent/magnet link"
     no_uri_msg = (
         "uhm you need to reply to or send command alongside a torrent link"
     )
