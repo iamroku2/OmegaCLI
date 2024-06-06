@@ -173,21 +173,8 @@ async def listqueuep(event, args, client):
 
 async def enleech(event, args: str, client, direct=False):
     """
-    Adds a link or torrent link to encoding queue:
-        Requires a reply to link or the link as argument
-        can also add consecutive items to queue by replying
-        to the first link and a number of how many links to add to queue
-    Accepts the following flags:
-        -f filter (only use if familiar with filter format)
-        -rm what_to_remove (keyword to remove from torrent file_name)
-        -tc caption_tag (tag caption type as…)
-        -tf file_tag (tag file_as)
-        -v number (tag according to version number)
-    Both flags override /filter & /v
-
-    :: filter format-
-        what_to_remove\\ntag_file_as\\ntag_caption_as
-    ::
+    Adds a torrent link to encoding queue:
+        Requires a reply to link torrent link or the link as argument
     """
     chat_id = event.chat_id
     user_id = event.sender_id
@@ -199,7 +186,7 @@ async def enleech(event, args: str, client, direct=False):
     queue = get_queue()
     invalid_msg = "Invalid torrent/direct link"
     no_uri_msg = (
-        "uhm you need to reply to or send command alongside a uri/direct link"
+        "uhm you need to reply to or send command alongside a torrent link"
     )
     no_dl_spt_msg = "File to download is…\neither not a video\nor is a batch torrent which is currently not supported.`"
     ukn_err_msg = "An unknown error occurred, might an internal issue with aria2."
