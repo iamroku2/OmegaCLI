@@ -34,7 +34,7 @@ def pm_is_allowed(in_group=False, in_pm=False):
     if in_pm:
         return not conf.NO_TEMP_PM
     if in_group:
-        return TEMP_ONLY_IN_GROUP
+        return user in conf.GROUP_ID
 
 
 def temp_is_allowed(user: str | int):
