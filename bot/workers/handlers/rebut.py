@@ -127,8 +127,8 @@ async def en_download(event, args, client):
 
       *path specified directly will be downloaded as a subdir to download folder
     """
-    if not user_is_owner(event.sender_id):
-        return await event.delete()
+   # if not user_is_owner(event.sender_id):
+        #return await event.delete()
     if not event.is_reply:
         return await event.reply("`Reply to a file or link to download it`")
     try:
@@ -138,8 +138,8 @@ async def en_download(event, args, client):
         rep_event = await event.get_reply_message()
         message = await client.get_messages(event.chat_id, int(rep_event.id))
         if message.text and not (is_url(message.text) or is_magnet(message.text)):
-            return await message.reply("`Not a valid link`")
-        e = await message.reply(f"{enmoji()} `Downloading…`", quote=True)
+            return await message.reply("Not a valid link")
+        e = await message.reply(f"{enmoji()} Downloading…", quote=True)
         if args is not None:
             arg, args = get_args(
                 ["--home", "store_true"],
@@ -172,7 +172,7 @@ async def en_download(event, args, client):
                 download, e, download.file_name, event.sender_id
             )
         f_loc = _dir + loc if not link else _dir + download.file_name
-        await e.edit(f"__Saved to__ `{f_loc}` __successfully!__")
+        await e.edit(f"__Saved to__ {f_loc} __successfully!__")
     except Exception:
         await logger(Exception)
 
@@ -625,8 +625,8 @@ async def en_upload(event, args, client):
                 <int>: selects file to upload from batch torrent using qbittorrent
     __as an argument.
     """
-    if not user_is_owner(event.sender_id):
-        return await event.delete()
+    #if not user_is_owner(event.sender_id):
+        #return await event.delete()
     try:
         download = None
         ext = None
@@ -783,13 +783,13 @@ async def en_upload(event, args, client):
 
         else:
             _no = 1
-            r = await reply_message(message, f"`Uploading {file}…`", quote=True)
+            r = await reply_message(message, f"Uploading {file}…", quote=True)
             _none, cap = os.path.split(file)
             u_id = f"{r.chat.id}:{r.id}"
             if ext:
                 fname = check_ext(cap, ext=ext, overide=True)
                 await asyncio.sleep(3)
-                await edit_message(r, f"Renaming:\n`{cap}`\n >>>\n`{fname}`…")
+                await edit_message(r, f"Renaming:\n{cap}\n >>>\n{fname}…")
                 out = folder + fname
                 if file_exists(out):
                     return await edit_message(
