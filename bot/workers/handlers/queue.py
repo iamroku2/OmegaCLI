@@ -197,12 +197,12 @@ async def enleech(event, args: str, client, direct=False):
     mode = "None"
     o_args = None
     queue = get_queue()
-    invalid_msg = "`Invalid torrent/direct link`"
+    invalid_msg = "Invalid torrent/direct link"
     no_uri_msg = (
-        "`uhm you need to reply to or send command alongside a uri/direct link`"
+        "uhm you need to reply to or send command alongside a uri/direct link"
     )
-    no_dl_spt_msg = "`File to download is…\neither not a video\nor is a batch torrent which is currently not supported.`"
-    ukn_err_msg = "`An unknown error occurred, might an internal issue with aria2.\nCheck logs for more info`"
+    no_dl_spt_msg = "File to download is…\neither not a video\nor is a batch torrent which is currently not supported.`"
+    ukn_err_msg = "An unknown error occurred, might an internal issue with aria2."
     if args:
         o_args = args
         flag, args = get_args(
@@ -220,12 +220,12 @@ async def enleech(event, args: str, client, direct=False):
         if event.is_reply:
             rep_event = await event.get_reply_message()
             if rep_event.file:
-                await event.reply("**Warning:** `Use /add for files instead.`")
+                await event.reply("**Warning:** Use /add for files instead.")
                 return await addqueue(event, o_args, client)
             if args:
                 if not args.isdigit():
                     return await event.reply(
-                        f"**Yeah No.**\n`Error: expected a number but received '{args}'.`"
+                        f"**Yeah No.**\nError: expected a number but received '{args}'."
                     )
                 args = int(args)
                 async with queue_lock:
@@ -246,7 +246,7 @@ async def enleech(event, args: str, client, direct=False):
                             return await rm_pause(dl_pause, 5)
                         file = await get_leech_name(uri)
                         if file.error:
-                            await event2.reply(f"`{file.error}`", quote=True)
+                            await event2.reply(f"{file.error}", quote=True)
                             await asyncio.sleep(10)
                             continue
                         if not is_video_file(file.name):
@@ -303,7 +303,7 @@ async def enleech(event, args: str, client, direct=False):
             return await event.reply(invalid_msg)
         file = await get_leech_name(uri)
         if file.error:
-            return await event.reply(f"`{file.error}`")
+            return await event.reply(f"{file.error}")
         if not is_video_file(file.name):
             return await event.reply(no_dl_spt_msg)
         for item in queue.values():
