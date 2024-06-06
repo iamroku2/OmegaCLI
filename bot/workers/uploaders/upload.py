@@ -71,8 +71,8 @@ class Uploader:
         [
             [
                                 InlineKeyboardButton(
-                                    text="Before info",
-                                    url="https://t.me/+j9MZCHCRm5wxMjY0"
+                                    text="⚡ Encoded 480p",
+                                    callback_data="none"
                 )
             ]
         ]
