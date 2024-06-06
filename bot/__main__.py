@@ -255,11 +255,6 @@ async def _(e):
     await event_handler(e, en_list, pyro, require_args=True)
 
 
-@tele.on(events.NewMessage(pattern=command(["download", "dl"], ["/", "!", "/"])))
-async def _(e):
-    await event_handler(e, en_download, pyro)
-
-
 @tele.on(events.NewMessage(pattern=command(["upload", "ul"], ["/", "!", "/"])))
 async def _(e):
     await event_handler(e, en_upload, pyro, require_args=True)
