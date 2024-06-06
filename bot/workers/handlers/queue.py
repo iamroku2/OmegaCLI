@@ -180,7 +180,7 @@ async def enleech(event, args: str, client, direct=False):
     user_id = event.sender_id
     #if not (user_is_allowed(user_id) or direct):
         #return
-    if not user_is_allowed(event.sender_id):
+    if not pm_is_allowed(event.sender_id):
          return await try_delete(event)
     cust_fil = cust_v = str()
     mode = "None"
