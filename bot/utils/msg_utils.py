@@ -446,6 +446,8 @@ async def event_handler(
     default_args: str = False,
     use_default_args=False,
 ):
+    if not user_is_owner(event.sender_id) and event.is_private:
+        return
     args = (
         event.text.split(split_args, maxsplit=1)[1].strip()
         if len(event.text.split()) > 1
