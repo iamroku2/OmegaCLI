@@ -43,7 +43,7 @@ from .workers.handlers.manage import (
     reffmpeg,
     restart,
     rmfilter,
-    rss_handler,
+   # rss_handler,
     save_thumb,
     set_mux_args,
     update2,
