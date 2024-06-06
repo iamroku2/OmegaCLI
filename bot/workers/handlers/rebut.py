@@ -606,24 +606,9 @@ async def en_mux(event, args, client):
 
 async def en_upload(event, args, client):
     """
-    Uploads a file/files from local directory or direct/torrent link
-    Just pass any of the following:
-        - the file (with -f) e.g -f "something.txt"
-        - the folder path
-        - direct link
-        - torrent/magnet link
-        -
-            --ext (optional argument) [Low priority]
-                changes the extension of a single file while uploading
-            --mkv (optional argument) [High priority]
-                same as above but only changes to 'mkv' same as passing --ext ".mkv"
-            -s (optional argument)
-                cleans command and remits no message as to what or how many files were uploaded.
-            -qb (optional argument)
-                forces downloading using qbtorrent (Only for torrent or magnetic links)
-            -qs (optional argument)
-                <int>: selects file to upload from batch torrent using qbittorrent
-    __as an argument.
+    Uploads a file from a direct link to telegram
+      Requires a reply to the direct link or use the link as argument
+     
     """
     #if not user_is_owner(event.sender_id):
         #return await event.delete()
@@ -634,7 +619,7 @@ async def en_upload(event, args, client):
         qb = select = None
         uri = None
         topic_id = None
-        u_can_msg = "`Folder upload has been force cancelled`"
+        u_can_msg = "Folder upload has been force cancelled"
         if getattr(event.reply_to, "forum_topic", None):
             topic_id = (
                 top
@@ -652,7 +637,7 @@ async def en_upload(event, args, client):
             get_unknown=True,
         )
         if arg.qs and not arg.qs.isdigit():
-            return await event.reply("'-qs': `param accepts only digits`")
+            return await event.reply("'-qs': param accepts only digits")
         if arg.s and topic_id:
             message = await client.get_messages(event.chat_id, int(topic_id))
         else:
@@ -669,7 +654,7 @@ async def en_upload(event, args, client):
                     return await event.reply(f"`{file.error}`")
                 if (ind := int(arg.qs)) > (file.count - 1):
                     return await event.reply(
-                        f"'-qs': `{arg.qs} is more than last file_id :- {file.count - 1}\n"
+                        f"'-qs': {arg.qs} is more than last file_id :- {file.count - 1}\n"
                         f"Total files in folder :- {file.count}`"
                     )
                 qb = True
@@ -677,7 +662,7 @@ async def en_upload(event, args, client):
             qb = arg.qb or qb
             uri = True
             dl = await message.reply(
-                "`Preparing to download file from link…`",
+                "Preparing to download file from link…",
                 quote=True,
             )
             d_id = f"{dl.chat.id}:{dl.id}"
@@ -712,7 +697,7 @@ async def en_upload(event, args, client):
                 subdirs.sort()
                 if not files:
                     if not os.listdir(path):
-                        await event.reply(f"`📁 {path} is empty.`")
+                        await event.reply(f"📁 {path} is empty.")
                     continue
                 i = len(files)
                 t = 1
@@ -730,7 +715,7 @@ async def en_upload(event, args, client):
                     if size_of(file) > 2126000000:
                         chain_msg = await reply_message(
                             chain_msg,
-                            f"Uploading of `{name}` failed because file was larger than 2GB",
+                            f"Uploading of **{name}** failed because file was larger than 2GB",
                             quote=True,
                         )
                         continue
@@ -738,8 +723,8 @@ async def en_upload(event, args, client):
                         try:
                             cap = f"`{name}`"
                             ul = await chain_msg.reply(
-                                f"**Uploading:-**\n`{name}`\n"
-                                f"**from 📁:**\n `{path}`\n`({t}/{i})`…",
+                                f"**Uploading:-**\n**{name}**\n"
+                                f"**from 📁:**\n **{path}**\n({t}/{i})…",
                                 quote=True,
                             )
                             u_id = f"{ul.chat.id}:{ul.id}"
@@ -759,7 +744,7 @@ async def en_upload(event, args, client):
                                 _no = _no + 1
                             else:
                                 arg.s or await ul.edit(
-                                    f"Uploading of `{name}` was cancelled."
+                                    f"Uploading of **{name}** was cancelled."
                                 )
                                 chain_msg = ul
                             t = t + 1
@@ -776,7 +761,7 @@ async def en_upload(event, args, client):
                 await asyncio.sleep(10)
                 f_jump = arg.s or await reply_message(
                     f_jump,
-                    f"`All files in`:\n'`{path}`'\n`have been uploaded successfully. {enmoji()}`",
+                    f"`All files in`:\n'**{path}**'\n`have been uploaded successfully. {enmoji()}`",
                 )
                 await asyncio.sleep(1)
             await ctrl.delete()
@@ -793,7 +778,7 @@ async def en_upload(event, args, client):
                 out = folder + fname
                 if file_exists(out):
                     return await edit_message(
-                        r, f"`{out}` already exists;\nWill not overwrite!"
+                        r, f"{out} already exists;\nWill not overwrite!"
                     )
                 shutil.copy2(file, out)
                 cap = fname
