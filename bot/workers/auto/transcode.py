@@ -262,7 +262,7 @@ async def thing():
                     )
             if not downloaded or download.is_cancelled:
                 skip(queue_id)
-                mark_file_as_done(einfo.select, queue_id)
+               # mark_file_as_done(einfo.select, queue_id)
                 await save2db()
                 await save2db("batches")
                 await asyncio.sleep(2)
@@ -281,7 +281,7 @@ async def thing():
         except Exception:
             await logger(Exception)
             skip(queue_id)
-            mark_file_as_done(einfo.select, queue_id)
+         #   mark_file_as_done(einfo.select, queue_id)
             await save2db()
             await save2db("batches")
             return
