@@ -349,7 +349,7 @@ async def thing():
 
         await asyncio.sleep(3)
         await enpause(msg_p)
-
+      
         mux_args = None
         if file_exists(mux_file):
             with open(mux_file, "r") as file:
@@ -378,7 +378,7 @@ async def thing():
                 s_remove(out, _out)
                 skip(queue_id)
                 mark_file_as_done(einfo.select, queue_id)
-                E_CANCEL.pop(_id) if E_CANCEL.get(_id) else None
+                e_cancel().pop(_id) if e_cancel().get(_id) else None
                 await save2db()
                 await save2db("batches")
                 return
@@ -429,55 +429,30 @@ async def thing():
         mi = await info(dl)
         forward_task = asyncio.create_task(forward_(name, out, up, mi, f))
 
-        text += f""
+        text += f"**Source:** `[{rlsgrp}]`"
         if mi:
-            text += f"Encoder"
-       # mi_msg = await up.reply(
-         #   text,
-          #  disable_web_page_preview=True,
-           # quote=True,
-        #    reply_markup=pyrogram.types.InlineKeyboardMarkup(
-        #[
-          #  [
-              #  pyrogram.types.InlineKeyboardButton(
-               #     text="Before info", url=f"{mi}"),
-               # pyrogram.types.InlineKeyboardButton(
-                #    text="After info", url=f"{mi}"
-               # ),
-          #  ],
-           # [
-              #  pyrogram.types.InlineKeyboardButton(
-              #      text=f"Encoded in {etime}", callback_data="callme"
-             #   ),
-             #   pyrogram.types.InlineKeyboardButton(
-             #       text="", url="https://example.com/button4"
-            #    ),
-          #  ],
-           # [
-            #    pyrogram.types.InlineKeyboardButton(
-               #     text="", url="https://example.com/button5"
-              #  ),
-          #  ],
-       # ]
-   # )
-#)
-        #await mi_msg.copy(chat_id=log_channel) if op else None
+            text += f"\n\nMediainfo: **[(Source)]({mi})**"
+        mi_msg = await up.reply(
+            text,
+            disable_web_page_preview=True,
+            quote=True,
+        )
+        await mi_msg.copy(chat_id=log_channel) if op else None
 
-      #  st_msg = await up.reply(
-        #    f"**Encode Stats:**\n\nOriginal Size: "
-          #  f"`{hbs(org_s)}`\nEncoded Size: `{hbs(out_s)}`\n"
-         #   f"Encoded Percentage: `{per}`\n\n"
-          #  f"{'Cached' if einfo.cached_dl else 'Downloaded'} in `{dtime}`\n"
-         #   f"Encoded in `{etime}`\n{mux_msg}Uploaded in `{utime}`",
-           # disable_web_page_preview=True,
-       #     quote=True,
-       # )
-        
+        st_msg = (
+            f"**Encode Stats:**\n\nOriginal Size: "
+            f"`{hbs(org_s)}`\nEncoded Size: `{hbs(out_s)}`\n"
+            f"Encoded Percentage: `{per}`\n\n"
+            f"{'Cached' if einfo.cached_dl else 'Downloaded'} in `{dtime}`\n"
+            f"Encoded in `{etime}`\n{mux_msg}Uploaded in `{utime}`",
+            disable_web_page_preview=True,
+            quote=True,
+        )
         await st_msg.copy(chat_id=log_channel) if op else None
         await forward_task
 
         skip(queue_id)
-       # mark_file_as_done(einfo.select, queue_id)
+        mark_file_as_done(einfo.select, queue_id)
         await save2db()
         await save2db("batches")
         s_remove(thumb2)
@@ -498,3 +473,4 @@ async def thing():
     finally:
         einfo.reset()
         await asyncio.sleep(5)
+      
