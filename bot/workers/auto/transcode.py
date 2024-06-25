@@ -446,7 +446,7 @@ async def thing():
             f"{'Cached' if einfo.cached_dl else 'Downloaded'} in `{dtime}`\n"
             f"Encoded in `{etime}`\n{mux_msg}Uploaded in `{utime}`",
             disable_web_page_preview=True,
-            quote=True,
+            quote=True
         )
         await st_msg.copy(chat_id=log_channel) if op else None
         await forward_task
