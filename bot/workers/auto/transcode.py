@@ -439,12 +439,7 @@ async def thing():
         )
         await mi_msg.copy(chat_id=log_channel) if op else None
 
-       st_msg = f"
-            **Encode Stats:**\n\nOriginal Size:
-            `{hbs(org_s)}`\nEncoded Size: `{hbs(out_s)}`\n
-            **Encoded Percentage:** `{per}`\n\n
-            {'Cached' if einfo.cached_dl else 'Downloaded'} in `{dtime}`\n
-            Encoded in `{etime}`\n{mux_msg}Uploaded in `{utime}`"
+       st_msg = f"**Encode Stats:**\n\nOriginal Size:`{hbs(org_s)}`\nEncoded Size: `{hbs(out_s)}`\n **Encoded Percentage:** `{per}`\n\n {'Cached' if einfo.cached_dl else 'Downloaded'} in `{dtime}`\n Encoded in `{etime}`\n{mux_msg}Uploaded in `{utime}`"
             #disable_web_page_preview=True,
             #quote=True
         
