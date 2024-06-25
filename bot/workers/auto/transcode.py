@@ -444,7 +444,7 @@ async def thing():
             `{hbs(org_s)}`\nEncoded Size: `{hbs(out_s)}`\n
             **Encoded Percentage:** `{per}`\n\n
             {'Cached' if einfo.cached_dl else 'Downloaded'} in `{dtime}`\n
-            Encoded in `{etime}`\n{mux_msg}Uploaded in `{utime}`"
+            Encoded in `{etime}`\n{mux_msg}Uploaded in `{utime}`",
             disable_web_page_preview=True,
             quote=True
         
