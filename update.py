@@ -5,6 +5,7 @@ from decouple import config
 from pathlib import Path
 from subprocess import run as bashrun
 from dotenv import load_dotenv
+
 try:
     print("Default var for upstream repo & branch will used if none were given!")
     ALWAYS_DEPLOY_LATEST = config(
