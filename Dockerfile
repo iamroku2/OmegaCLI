@@ -1,4 +1,4 @@
-"# Base Image 
+# Base Image 
 FROM fedora:37
 
 # Setup home directory, non interactive shell and timezone
