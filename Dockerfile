@@ -1,17 +1,24 @@
-FROM python:3.10-slim-buster
+# Base Image 
+FROM fedora:37
 
+# Setup home directory, non interactive shell and timezone
 RUN mkdir /bot /tgenc && chmod 777 /bot
 WORKDIR /bot
 ENV DEBIAN_FRONTEND=noninteractive
 ENV TZ=Africa/Lagos
 ENV TERM=xterm
 
-RUN apt-get update && apt-get upgrade -y
-RUN apt-get install git aria2 bash wget curl pv jq python3-pip mediainfo psmisc qbittorrent-nox -y && python3 -m pip install --upgrade pip setuptools
+# Install Dependencies
+RUN dnf -qq -y update && dnf -qq -y install git aria2 bash xz wget curl pv jq python3-pip mediainfo psmisc procps-ng qbittorrent-nox && python3 -m pip install --upgrade pip setuptools
 
-COPY --from=mwader/static-ffmpeg:7.0 /ffmpeg /bin/ffmpeg
-COPY --from=mwader/static-ffmpeg:7.0 /ffprobe /bin/ffprobe
+# Install latest ffmpeg
+RUN wget https://github.com/BtbN/FFmpeg-Builds/releases/download/latest/ffmpeg-n7.0-latest-linux64-gpl-7.0.tar.xz && tar -xvf *xz && cp *7.0/bin/* /usr/bin && rm -rf *xz && rm -rf *7.0
 
+# Copy files from repo to home directory
 COPY . .
-RUN pip3 install --no-cache-dir -r requirements.txt
+
+# Install python3 requirements
+RUN pip3 install -r requirements.txt
+
+# Start bot
 CMD ["bash","run.sh"]
