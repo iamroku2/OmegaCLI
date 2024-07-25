@@ -71,7 +71,7 @@ class Uploader:
         [
             [
                                 InlineKeyboardButton(
-                                    text="⚡ Encoded 480p",
+                                    text="Encoding Complete ✅",
                                     callback_data="none"
                 )
             ]
