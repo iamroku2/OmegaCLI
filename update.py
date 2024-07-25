@@ -8,13 +8,13 @@ from dotenv import load_dotenv
 
 try:
     print("Default var for upstream repo & branch will used if none were given!")
-    ALWAYS_DEPLOY_LATEST = config(
+    ALWAYS_DEPLOY_LATEST = getenv(
         "ALWAYS_DEPLOY_LATEST",
         default=True,
         cast=bool)
-    AUPR = config("ALWAYS_UPDATE_PY_REQ", default=True, cast=bool)
-    UPSTREAM_REPO = config("UPSTREAM_REPO")
-    UPSTREAM_BRANCH = config("UPSTREAM_BRANCH")
+    AUPR = getenv("ALWAYS_UPDATE_PY_REQ", default=True, cast=bool)
+    UPSTREAM_REPO = getenv("UPSTREAM_REPO")
+    UPSTREAM_BRANCH = getenv("UPSTREAM_BRANCH")
 
 except Exception:
     print("Environment vars Missing")
