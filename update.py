@@ -9,13 +9,11 @@ try:
     print("Default var for upstream repo & branch will used if none were given!")
     ALWAYS_DEPLOY_LATEST = config(
         "ALWAYS_DEPLOY_LATEST",
-        default=False,
+        default=True,
         cast=bool)
-    AUPR = config("ALWAYS_UPDATE_PY_REQ", default=False, cast=bool)
-    UPSTREAM_REPO = config(
-        "UPSTREAM_REPO",
-        default="https://github.com/Salxchange/OmegaCLI")
-    UPSTREAM_BRANCH = config("UPSTREAM_BRANCH", default="test2")
+    AUPR = config("ALWAYS_UPDATE_PY_REQ", default=True, cast=bool)
+    UPSTREAM_REPO = config("UPSTREAM_REPO")
+    UPSTREAM_BRANCH = config("UPSTREAM_BRANCH")
 
 except Exception:
     print("Environment vars Missing")
