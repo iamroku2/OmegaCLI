@@ -16,6 +16,7 @@ pymediainfo
 pyrofork
 pymongo[srv]
 pyrogram==2.0.106
+python-dotenv
 #pyrogram==2.0.73
 python-decouple
 qbittorrent-api
