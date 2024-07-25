@@ -4,17 +4,18 @@ import traceback
 from decouple import config
 from pathlib import Path
 from subprocess import run as bashrun
-from dotenv import load_dotenv
 
 try:
     print("Default var for upstream repo & branch will used if none were given!")
-    ALWAYS_DEPLOY_LATEST = getenv(
+    ALWAYS_DEPLOY_LATEST = config(
         "ALWAYS_DEPLOY_LATEST",
-        default=True,
+        default=False,
         cast=bool)
-    AUPR = getenv("ALWAYS_UPDATE_PY_REQ", default=True, cast=bool)
-    UPSTREAM_REPO = getenv("UPSTREAM_REPO")
-    UPSTREAM_BRANCH = getenv("UPSTREAM_BRANCH")
+    AUPR = config("ALWAYS_UPDATE_PY_REQ", default=False, cast=bool)
+    UPSTREAM_REPO = config(
+        "UPSTREAM_REPO",
+        default="https://github.com/Nubuki-all/Tg-encoder")
+    UPSTREAM_BRANCH = config("UPSTREAM_BRANCH", default="main")
 
 except Exception:
     print("Environment vars Missing")
