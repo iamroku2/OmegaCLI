@@ -45,7 +45,7 @@ from html_telegraph_poster import errors as telegraph_errors
 from pyrogram import Client
 from pyrogram import errors as pyro_errors
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
-from qbittorrentapi import Client as qbClient
+#from qbittorrentapi import Client as qbClient
 from telethon import Button, TelegramClient, errors, events, functions, types
 from telethon.sessions import StringSession
 from telethon.utils import pack_bot_file_id
