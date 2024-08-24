@@ -39,7 +39,7 @@ from logging.handlers import RotatingFileHandler
 from pathlib import Path
 
 import aiohttp
-import aria2p
+#import aria2p
 from html_telegraph_poster import TelegraphPoster
 from html_telegraph_poster import errors as telegraph_errors
 from pyrogram import Client
