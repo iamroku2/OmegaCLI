@@ -1,6 +1,6 @@
 import uuid
 
-from bot import asyncio, math, os, pyro, qbClient, time
+from bot import asyncio, math, os, pyro, time
 from bot.config import conf
 from bot.utils.bot_utils import (
     CACHE_QUEUE,
