@@ -1,4 +1,5 @@
-FROM python:3.10-slim-buster
+# Base Image 
+FROM fedora:37
 
 # Setup home directory, non interactive shell and timezone
 RUN mkdir /bot /tgenc && chmod 777 /bot
@@ -8,12 +9,10 @@ ENV TZ=Africa/Lagos
 ENV TERM=xterm
 
 # Install Dependencies
-RUN apt-get update && apt-get upgrade -y
-RUN apt-get install git aria2 bash wget curl pv jq python3-pip mediainfo psmisc qbittorrent-nox -y && python3 -m pip install --upgrade pip setuptools
+RUN dnf -qq -y update && dnf -qq -y install git bash xz wget curl pv jq python3-pip mediainfo psmisc procps-ng && python3 -m pip install --upgrade pip setuptools
 
 # Install latest ffmpeg
-COPY --from=mwader/static-ffmpeg:7.0 /ffmpeg /bin/ffmpeg
-COPY --from=mwader/static-ffmpeg:7.0 /ffprobe /bin/ffprobe
+RUN wget https://github.com/BtbN/FFmpeg-Builds/releases/download/latest/ffmpeg-n6.1-latest-linux64-gpl-6.1.tar.xz && tar -xvf *xz && cp *6.1/bin/* /usr/bin && rm -rf *xz && rm -rf *6.1
 
 # Copy files from repo to home directory
 COPY . .
